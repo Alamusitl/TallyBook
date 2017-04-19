@@ -6,10 +6,9 @@
     </data>
 
     <ImageView
-        android:id="@+id/id_guide_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/contentDescription"
-        android:src="@color/color_orange"/>
+        android:background="@color/color_orange"
+        android:contentDescription="@string/contentDescription"/>
 
 </layout>

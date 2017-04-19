@@ -35,6 +35,8 @@ public class GuideModel extends BaseObservable {
         mIsSelected.set(position, true);
         if (position == mIsSelected.size() - 1) {
             setIsLastView(true);
+        } else {
+            setIsLastView(false);
         }
         notifyChange();
     }

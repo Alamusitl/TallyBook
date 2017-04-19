@@ -26,7 +26,6 @@ public class GuideFragment extends BaseFragment {
     private GuidePagerAdapter mAdapter;
     private GuideModel mGuideModel;
     private Presenter mPresenter;
-    private int[] mGuidePicRes = {R.drawable.guide_pic_1, R.drawable.guide_pic_1, R.drawable.guide_pic_1, R.drawable.guide_pic_1};
 
     @Override
     public boolean onBackPressed() {
@@ -37,15 +36,20 @@ public class GuideFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mGuideBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_guide, container, false);
-        mViewPager = mGuideBinding.idViewPager;
+        if (mViewPager == null) {
+            mViewPager = mGuideBinding.idViewPager;
+        }
         return mGuideBinding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mGuideModel = new GuideModel(CHILD_COUNT);
         mPresenter = new Presenter();
+        mGuideModel = new GuideModel(CHILD_COUNT);
+        mGuideBinding.setPresenter(mPresenter);
+        mGuideBinding.setGuide(mGuideModel);
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -63,11 +67,9 @@ public class GuideFragment extends BaseFragment {
 
             }
         });
-
         mAdapter = new GuidePagerAdapter(getContext(), CHILD_COUNT);
         mViewPager.setAdapter(mAdapter);
-        mGuideBinding.setPresenter(mPresenter);
-        mGuideBinding.setGuide(mGuideModel);
+
     }
 
     public class Presenter {
