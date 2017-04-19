@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TallyBook</string>
+    <string name="tally_book">TallyBook</string>
+    <string name="skip">跳过</string>
+    <string name="contentDescription">contentDescription</string>
+    <string name="enter_main">开始体验</string>
+</resources>
