@@ -1,4 +1,4 @@
-package com.owl.tallybook.introduce;
+package com.owl.tallybook.guide;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -69,6 +69,7 @@ public class GuideFragment extends BaseFragment {
         });
         mAdapter = new GuidePagerAdapter(getContext(), CHILD_COUNT);
         mViewPager.setAdapter(mAdapter);
+        mViewPager.setCurrentItem(0);
 
     }
 

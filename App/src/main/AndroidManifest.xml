@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".introduce.GuideActivity"
+            android:name=".guide.GuideActivity"
             android:theme="@style/App.FullScreen"/>
         <activity android:name=".main.MainActivity"/>
     </application>

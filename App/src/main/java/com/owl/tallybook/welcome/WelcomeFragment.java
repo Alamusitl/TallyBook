@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.owl.tallybook.R;
 import com.owl.tallybook.base.BaseFragment;
 import com.owl.tallybook.databinding.FragmentWelcomeBinding;
-import com.owl.tallybook.introduce.GuideActivity;
+import com.owl.tallybook.guide.GuideActivity;
 import com.owl.tallybook.main.MainActivity;
 import com.owl.tallybook.util.SPUtils;
 

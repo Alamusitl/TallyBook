@@ -7,11 +7,11 @@
 
         <variable
             name="guide"
-            type="com.owl.tallybook.introduce.GuideModel"/>
+            type="com.owl.tallybook.guide.GuideModel"/>
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.introduce.GuideFragment.Presenter"/>
+            type="com.owl.tallybook.guide.GuideFragment.Presenter"/>
     </data>
 
     <RelativeLayout
@@ -43,7 +43,7 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/contentDescription"
                 android:padding="@dimen/guide_point_padding"
-                android:src="@{guide.isSelected(0) ? @drawable/point_enable : @drawable/point_disenable}"/>
+                android:src="@{guide.isSelected(0) ? @drawable/dot_focused : @drawable/dot_normal}"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/contentDescription"
                 android:padding="@dimen/guide_point_padding"
-                android:src="@{guide.isSelected(1) ? @drawable/point_enable : @drawable/point_disenable}"/>
+                android:src="@{guide.isSelected(1) ? @drawable/dot_focused : @drawable/dot_normal}"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/contentDescription"
                 android:padding="@dimen/guide_point_padding"
-                android:src="@{guide.isSelected(2) ? @drawable/point_enable : @drawable/point_disenable}"/>
+                android:src="@{guide.isSelected(2) ? @drawable/dot_focused : @drawable/dot_normal}"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/contentDescription"
                 android:padding="@dimen/guide_point_padding"
-                android:src="@{guide.isSelected(3) ? @drawable/point_enable : @drawable/point_disenable}"/>
+                android:src="@{guide.isSelected(3) ? @drawable/dot_focused : @drawable/dot_normal}"/>
 
         </LinearLayout>
 
@@ -83,6 +83,7 @@
             android:background="@drawable/button_shape"
             android:onClick="@{() -> presenter.onEnterMainClick()}"
             android:text="@string/enter_main"
+            android:textColor="@color/color_white"
             android:visibility="@{guide.isLastView ? View.VISIBLE : View.GONE}"/>
     </RelativeLayout>
 

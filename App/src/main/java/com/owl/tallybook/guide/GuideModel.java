@@ -1,4 +1,4 @@
-package com.owl.tallybook.introduce;
+package com.owl.tallybook.guide;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -26,14 +26,14 @@ public class GuideModel extends BaseObservable {
         setSelected(0);
     }
 
-    public boolean isSelected(int position) {
-        return mIsSelected.get(position);
+    public boolean isSelected(int index) {
+        return mIsSelected.get(index);
     }
 
-    public void setSelected(int position) {
+    public void setSelected(int index) {
         reset();
-        mIsSelected.set(position, true);
-        if (position == mIsSelected.size() - 1) {
+        mIsSelected.set(index, true);
+        if (index == mIsSelected.size() - 1) {
             setIsLastView(true);
         } else {
             setIsLastView(false);
