@@ -1,18 +1,34 @@
 package com.owl.tallybook.base;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 /**
  * Created by Alamusi on 2017/4/19.
  */
 
-public abstract class BaseFragment extends Fragment {
+public class BaseFragment<T extends ViewDataBinding> extends Fragment {
 
     private static final String TAG = "BaseFragment";
+    protected T mBinding;
 
-    public abstract boolean onBackPressed();
+    protected T instanceBinding(LayoutInflater inflater, int layoutId, ViewGroup container) {
+        mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false);
+        return mBinding;
+    }
+
+    protected T getBinding() {
+        return mBinding;
+    }
+
+    protected boolean onBackPressed() {
+        return false;
+    }
 
     protected void startActivity(Class className) {
         startActivity(new Intent(getActivity(), className));

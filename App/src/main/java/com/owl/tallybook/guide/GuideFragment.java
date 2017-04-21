@@ -27,11 +27,6 @@ public class GuideFragment extends BaseFragment {
     private GuideModel mGuideModel;
     private Presenter mPresenter;
 
-    @Override
-    public boolean onBackPressed() {
-        return false;
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
