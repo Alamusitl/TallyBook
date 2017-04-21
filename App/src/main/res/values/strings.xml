@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">TallyBook</string>
+    <string name="app_name">记账本</string>
     <string name="tally_book">TallyBook</string>
     <string name="skip">跳过</string>
     <string name="contentDescription">contentDescription</string>
     <string name="enter_main">开始体验</string>
+
+    <string name="main_bottom_detail">明细</string>
+    <string name="main_bottom_wallet">钱包</string>
+    <string name="main_bottom_form">报表</string>
+    <string name="main_bottom_more">更多</string>
 </resources>

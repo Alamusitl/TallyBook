@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bottomNav"
+            type="com.owl.tallybook.main.model.BottomNav"/>
+
+        <variable
+            name="presenter"
+            type="com.owl.tallybook.main.MainFragment.Presenter"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <include
+            layout="@layout/view_bottom_nav_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bind:item="@{bottomNav.getBottomNavItemList(0)}"
+            bind:presenter="@{presenter}"/>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/contentDescription"
+            android:src="@color/color_line_gray"/>
+
+        <include
+            layout="@layout/view_bottom_nav_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bind:item="@{bottomNav.getBottomNavItemList(1)}"
+            bind:presenter="@{presenter}"/>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/contentDescription"
+            android:src="@color/color_line_gray"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/contentDescription"
+            android:onClick="@{() -> presenter.onNavAddRecordClick()}"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_new_record"/>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/contentDescription"
+            android:src="@color/color_line_gray"/>
+
+        <include
+            layout="@layout/view_bottom_nav_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bind:item="@{bottomNav.getBottomNavItemList(2)}"
+            bind:presenter="@{presenter}"/>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/contentDescription"
+            android:src="@color/color_line_gray"/>
+
+        <include
+            layout="@layout/view_bottom_nav_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            bind:item="@{bottomNav.getBottomNavItemList(3)}"
+            bind:presenter="@{presenter}"/>
+
+    </LinearLayout>
+</layout>

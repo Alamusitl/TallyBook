@@ -8,4 +8,8 @@
     <color name="color_orange">#FFB47745</color>
     <color name="color_transparent">#00000000</color>
     <color name="color_white">#FFFFFFFF</color>
+
+    <color name="color_line_gray">#FFDEDDDD</color>
+    <color name="color_select_item_text">#FF59C1ED</color>
+    <color name="color_default_item_text">#FFDEDDDD</color>
 </resources>

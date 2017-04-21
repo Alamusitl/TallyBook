@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="bottomNav"
+            type="com.owl.tallybook.main.model.BottomNav"/>
+
+        <variable
+            name="presenter"
+            type="com.owl.tallybook.main.MainFragment.Presenter"/>
 
     </data>
 
@@ -10,6 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/id_main_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:contentDescription="@string/contentDescription"
+            android:src="@color/color_line_gray"/>
+
+        <include
+            layout="@layout/view_bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            bind:bottomNav="@{bottomNav}"
+            bind:presenter="@{presenter}"/>
 
     </LinearLayout>
 </layout>

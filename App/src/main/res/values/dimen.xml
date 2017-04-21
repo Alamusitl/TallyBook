@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="splash_top_bottom">5dp</dimen>
-    <dimen name="splash_left_right">10dp</dimen>
-
-    <dimen name="guide_point_margin_bottom">24dp</dimen>
-    <dimen name="guide_point_padding">10dp</dimen>
-</resources>
