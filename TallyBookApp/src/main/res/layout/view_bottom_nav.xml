@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -54,8 +54,12 @@
             android:layout_weight="1"
             android:contentDescription="@string/contentDescription"
             android:onClick="@{() -> presenter.onNavAddRecordClick()}"
+            android:paddingBottom="@dimen/dimen_5"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="@dimen/dimen_4"
             android:scaleType="centerInside"
-            android:src="@drawable/add_new_record"/>
+            android:src="@drawable/main_add_new"/>
 
         <ImageView
             android:layout_width="1dp"

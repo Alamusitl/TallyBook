@@ -22,7 +22,7 @@
             android:contentDescription="@string/contentDescription"
             android:onClick="@{() -> presenter.onAdClick()}"
             android:scaleType="fitXY"
-            android:src="@drawable/volcano"/>
+            android:src="@drawable/welcome_default"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

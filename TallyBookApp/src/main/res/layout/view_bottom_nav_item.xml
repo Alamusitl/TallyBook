@@ -21,25 +21,25 @@
 
         <ImageView
             android:id="@+id/id_main_nav_img"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginTop="@dimen/dimen_3"
             android:contentDescription="@string/contentDescription"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             app:imageId="@{item.select ? item.selectImageId : item.defaultImageId}"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="14dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
             android:layout_below="@id/id_main_nav_img"
-            android:gravity="center_horizontal|bottom"
+            android:gravity="center_horizontal|top"
             android:text="@{item.textId}"
             android:textColor="@{item.select ? @color/color_select_item_text : @color/color_black}"
             android:textSize="12sp"/>
