@@ -2,12 +2,13 @@ package com.owl.tallybook.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.owl.tallybook.R;
+import com.owl.tallybook.addone.AddOneActivity;
 import com.owl.tallybook.base.BaseFragment;
 import com.owl.tallybook.databinding.FragmentMainBinding;
 import com.owl.tallybook.main.fragment.DetailFragment;
@@ -26,6 +27,7 @@ import java.util.List;
 public class MainFragment extends BaseFragment<FragmentMainBinding> {
 
     private List<BaseFragment> mFragmentList;
+    private FragmentManager mFragmentManager;
 
     @Nullable
     @Override
@@ -46,17 +48,19 @@ public class MainFragment extends BaseFragment<FragmentMainBinding> {
         mFragmentList.add(new WalletFragment());
         mFragmentList.add(new FormFragment());
         mFragmentList.add(new MoreFragment());
+        mFragmentManager = getChildFragmentManager();
+        mFragmentManager.beginTransaction().add(mBinding.idMainContentContainer.getId(), mFragmentList.get(0)).commit();
     }
 
     public class Presenter {
 
         public void onNavItemSelected(int index) {
             getBinding().getBottomNav().setItemSelected(index);
-            Toast.makeText(getActivity(), "" + index, Toast.LENGTH_SHORT).show();
+            mFragmentManager.beginTransaction().replace(mBinding.idMainContentContainer.getId(), mFragmentList.get(index)).commit();
         }
 
         public void onNavAddRecordClick() {
-            Toast.makeText(getActivity(), "add record", Toast.LENGTH_SHORT).show();
+            startActivity(AddOneActivity.class);
         }
     }
 }

@@ -80,7 +80,7 @@
             android:layout_alignRight="@id/id_guide_doc_layout"
             android:layout_alignStart="@id/id_guide_doc_layout"
             android:layout_alignTop="@id/id_guide_doc_layout"
-            android:background="@drawable/button_shape"
+            android:background="@drawable/shape_rectangle_red"
             android:onClick="@{() -> presenter.onEnterMainClick()}"
             android:text="@string/enter_main"
             android:textColor="@color/color_white"

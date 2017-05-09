@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.owl.tallybook.addone.AddOneFragment.Presenter"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBECEB"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/id_add_head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:background="#FBFDFB">
+
+            <RadioGroup
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_rectangle_gray"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_add_income"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{() -> presenter.onInComeClick()}"
+                    android:text="收入"
+                    android:textColor="@color/color_add_text_selector"/>
+
+                <TextView
+                    android:id="@+id/id_add_payment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{() -> presenter.onPaymentClick()}"
+                    android:text="支出"
+                    android:textColor="@color/color_add_text_selector"/>
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:onClick="@{() -> presenter.onCloseClick()}"
+                android:padding="16dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_close_dark"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/id_add_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:layout_below="@id/id_add_head"
+            android:background="#FBFDFB"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:layout_marginStart="@dimen/dimen_10"/>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="start"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="0.00"
+                    android:textSize="28sp"/>
+            </FrameLayout>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_add_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/id_add_detail"/>
+
+        <LinearLayout
+            android:id="@+id/id_add_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_add_account"
+                    android:layout_width="82dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/shape_rectangle_corners"
+                    android:gravity="center"
+                    android:text="选择账户"/>
+
+                <TextView
+                    android:id="@+id/id_add_date"
+                    android:layout_width="77dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_toEndOf="@id/id_add_account"
+                    android:layout_toRightOf="@id/id_add_account"
+                    android:background="@drawable/shape_rectangle_corners"
+                    android:gravity="center"
+                    android:text="05月09日"/>
+
+                <ImageView
+                    android:id="@+id/id_add_description"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="7dp"
+                    android:paddingLeft="2dp"
+                    android:paddingStart="2dp"
+                    android:paddingTop="7dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/add_description"/>
+
+                <ImageView
+                    android:id="@+id/id_add_member"
+                    android:layout_width="@dimen/dimen_50"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:layout_marginRight="@dimen/dimen_10"
+                    android:layout_toLeftOf="@id/id_add_description"
+                    android:layout_toStartOf="@id/id_add_description"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/add_member"/>
+
+            </RelativeLayout>
+
+            <include layout="@layout/view_number_keyboard"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

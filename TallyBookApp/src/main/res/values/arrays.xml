@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="payment_list_name">
+        <item>一般</item>
+        <item>餐饮</item>
+        <item>交通</item>
+        <item>水果</item>
+        <item>零食</item>
+        <item>买菜</item>
+        <item>衣服鞋包</item>
+        <item>生活用品</item>
+        <item>话费</item>
+        <item>护肤</item>
+        <item>房租</item>
+        <item>电影</item>
+        <item>网购-淘宝</item>
+        <item>红包</item>
+        <item>药品</item>
+        <item>编辑</item>
+    </string-array>
+</resources>
