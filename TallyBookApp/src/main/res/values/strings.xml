@@ -9,4 +9,8 @@
     <string name="main_bottom_wallet">钱包</string>
     <string name="main_bottom_form">报表</string>
     <string name="main_bottom_more">更多</string>
+
+    <string name="add_top_text_left">收入</string>
+    <string name="add_top_text_right">支出</string>
+    <string name="add_select_account">选择账户</string>
 </resources>

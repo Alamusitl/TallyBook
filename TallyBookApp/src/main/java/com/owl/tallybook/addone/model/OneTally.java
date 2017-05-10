@@ -1,5 +1,11 @@
 package com.owl.tallybook.addone.model;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.owl.tallybook.BR;
+import com.owl.tallybook.util.DateTimeUtil;
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,9 +13,10 @@ import java.util.List;
  * Created by Alamusi on 2017/5/9.
  */
 
-public class OneTally {
+public class OneTally extends BaseObservable {
 
-    private boolean mIsIncome;
+    private boolean mSelectGet;
+    private boolean mSelectPay;
     private int mTallyType;
     private float mMoney;
     private List<String> mMembers;
@@ -17,12 +24,29 @@ public class OneTally {
     private int mMoneyType;
     private Date mDate;
 
-    public boolean isIncome() {
-        return mIsIncome;
+    private String mShowDate;
+
+    public OneTally() {
+        mDate = DateTimeUtil.getCurrDate();
+        mShowDate = DateTimeUtil.getFormatDateNoYear(mDate);
     }
 
-    public void setIncome(boolean income) {
-        mIsIncome = income;
+    public boolean isSelectGet() {
+        return mSelectGet;
+    }
+
+    public void setSelectGet(boolean selectGet) {
+        mSelectGet = selectGet;
+        mSelectPay = !selectGet;
+    }
+
+    public boolean isSelectPay() {
+        return mSelectPay;
+    }
+
+    public void setSelectPay(boolean selectPay) {
+        mSelectPay = selectPay;
+        mSelectGet = !selectPay;
     }
 
     public int getTallyType() {
@@ -71,5 +95,16 @@ public class OneTally {
 
     public void setDate(Date date) {
         mDate = date;
+        setShowDate(DateTimeUtil.getFormatDateNoYear(mDate));
+    }
+
+    @Bindable
+    public String getShowDate() {
+        return mShowDate;
+    }
+
+    private void setShowDate(String showDate) {
+        mShowDate = showDate;
+        notifyPropertyChanged(BR.showDate);
     }
 }

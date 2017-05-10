@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.owl.tallybook.R;
+import com.owl.tallybook.addone.model.OneTally;
 import com.owl.tallybook.base.BaseFragment;
 import com.owl.tallybook.databinding.FragmentAddOneBinding;
 
@@ -22,6 +23,11 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> {
     private TextView mTvIncome;
     private TextView mTvPayment;
 
+    private Presenter mPresenter;
+    private OneTally mOneTally;
+
+    private TallyTypeAdapter mAdapter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,31 +38,39 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        mPresenter = new Presenter();
+        mBinding.setPresenter(mPresenter);
+
+        mOneTally = new OneTally();
+        mBinding.setOneTally(mOneTally);
+
         mTvIncome = mBinding.idAddIncome;
         mTvPayment = mBinding.idAddPayment;
-        mTvPayment.setActivated(true);
+        mTvPayment.setSelected(true);
 
         RecyclerView recyclerView = mBinding.idAddRecyclerView;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 5));
-        recyclerView.setAdapter(new RecyclerViewAdapter());
+
+        mAdapter = new TallyTypeAdapter(getContext());
+        recyclerView.setAdapter(mAdapter);
     }
 
     public class Presenter {
-        public void onInComeClick() {
-            if (mTvPayment.isActivated()) {
-                mTvPayment.setActivated(false);
-            }
-            if (!mTvIncome.isActivated()) {
-                mTvIncome.setActivated(true);
-            }
-        }
 
-        public void onPaymentClick() {
-            if (mTvIncome.isActivated()) {
-                mTvIncome.setActivated(false);
-            }
-            if (!mTvPayment.isActivated()) {
-                mTvPayment.setActivated(true);
+        public void onSelectTabClicked(View view) {
+            if (view == mTvIncome) {
+                mTvIncome.setSelected(true);
+                mTvPayment.setSelected(false);
+                mOneTally.setSelectGet(true);
+                mAdapter.setInCome(true);
+                mAdapter.notifyDataSetChanged();
+            } else if (view == mTvPayment) {
+                mTvPayment.setSelected(true);
+                mTvIncome.setSelected(false);
+                mOneTally.setSelectPay(true);
+                mAdapter.setInCome(false);
+                mAdapter.notifyDataSetChanged();
             }
         }
 
