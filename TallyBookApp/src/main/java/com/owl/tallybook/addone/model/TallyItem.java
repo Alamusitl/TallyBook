@@ -11,26 +11,31 @@ import com.owl.tallybook.BR;
 
 public class TallyItem extends BaseObservable {
 
-    private String mTypeName;
-    private int mTypeImageId;
+    private String mItemName;
+    private int mItemDrawableId;
 
-    @Bindable
-    public String getTypeName() {
-        return mTypeName;
-    }
-
-    public void setTypeName(String typeName) {
-        mTypeName = typeName;
-        notifyPropertyChanged(BR.typeName);
+    public TallyItem(String typeName, int typeImageId) {
+        mItemName = typeName;
+        mItemDrawableId = typeImageId;
     }
 
     @Bindable
-    public int getTypeImageId() {
-        return mTypeImageId;
+    public String getItemName() {
+        return mItemName;
     }
 
-    public void setTypeImageId(int typeImageId) {
-        mTypeImageId = typeImageId;
-        notifyPropertyChanged(BR.typeImageId);
+    public void setItemName(String itemName) {
+        mItemName = itemName;
+        notifyPropertyChanged(BR.itemName);
+    }
+
+    @Bindable
+    public int getItemDrawableId() {
+        return mItemDrawableId;
+    }
+
+    public void setItemDrawableId(int itemDrawableId) {
+        mItemDrawableId = itemDrawableId;
+        notifyPropertyChanged(BR.itemDrawableId);
     }
 }

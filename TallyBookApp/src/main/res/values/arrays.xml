@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name="earn_list_name">
+        <item>工资</item>
+        <item>生活费</item>
+        <item>红包</item>
+        <item>零花钱</item>
+        <item>外快</item>
+        <item>投资收入</item>
+        <item>奖金</item>
+        <item>报销</item>
+        <item>现金</item>
+        <item>退款</item>
+        <item>支付宝</item>
+        <item>其他</item>
+        <item>编辑</item>
+    </string-array>
+
+    <integer-array name="earn_list_drawable">
+        <item>@drawable/icon_wage</item>
+        <item>@drawable/icon_living_expenses</item>
+        <item>@drawable/icon_red_envelope</item>
+        <item>@drawable/icon_pin_money</item>
+        <item>@drawable/icon_extra_gains</item>
+        <item>@drawable/icon_invest</item>
+        <item>@drawable/icon_bonus</item>
+        <item>@drawable/icon_reimburse</item>
+        <item>@drawable/icon_cash</item>
+        <item>@drawable/icon_refund</item>
+        <item>@drawable/icon_alipay</item>
+        <item>@drawable/icon_other</item>
+        <item>@drawable/icon_edit</item>
+    </integer-array>
+
     <string-array name="payment_list_name">
         <item>一般</item>
         <item>餐饮</item>
         <item>交通</item>
+        <item>酒水</item>
         <item>水果</item>
         <item>零食</item>
         <item>买菜</item>
@@ -18,4 +52,24 @@
         <item>药品</item>
         <item>编辑</item>
     </string-array>
+
+    <integer-array name="pay_list_drawable">
+        <item>@drawable/icon_common</item>
+        <item>@drawable/icon_dining</item>
+        <item>@drawable/icon_traffic</item>
+        <item>@drawable/icon_drinks</item>
+        <item>@drawable/icon_fruit</item>
+        <item>@drawable/icon_snacks</item>
+        <item>@drawable/icon_veggie</item>
+        <item>@drawable/icon_clothes</item>
+        <item>@drawable/icon_supplies</item>
+        <item>@drawable/icon_telephone_charge</item>
+        <item>@drawable/icon_cosmetic</item>
+        <item>@drawable/icon_rent</item>
+        <item>@drawable/icon_movie</item>
+        <item>@drawable/icon_taobao</item>
+        <item>@drawable/icon_red_envelope</item>
+        <item>@drawable/icon_medicine</item>
+        <item>@drawable/icon_other</item>
+    </integer-array>
 </resources>

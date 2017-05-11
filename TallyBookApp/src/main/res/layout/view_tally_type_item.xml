@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <data>
 
@@ -11,24 +12,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="34dp"
-            android:layout_height="34dp"
+            android:layout_height="44dp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_10"
-            android:background="@{tallyItem.typeImageId}"
             android:contentDescription="@null"
-            android:scaleType="fitXY"/>
+            android:paddingTop="@dimen/dimen_10"
+            android:scaleType="fitXY"
+            android:src="@{tallyItem.itemDrawableId}"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:gravity="center"
-            android:text="@{tallyItem.typeName}"/>
+            android:paddingTop="6dp"
+            android:text="@{tallyItem.itemName}"
+            android:textSize="14sp"/>
 
     </LinearLayout>
 </layout>

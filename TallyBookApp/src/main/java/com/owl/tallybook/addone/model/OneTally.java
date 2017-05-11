@@ -15,7 +15,7 @@ import java.util.List;
 
 public class OneTally extends BaseObservable {
 
-    private boolean mSelectGet;
+    private boolean mSelectEarn;
     private boolean mSelectPay;
     private int mTallyType;
     private float mMoney;
@@ -31,13 +31,13 @@ public class OneTally extends BaseObservable {
         mShowDate = DateTimeUtil.getFormatDateNoYear(mDate);
     }
 
-    public boolean isSelectGet() {
-        return mSelectGet;
+    public boolean isSelectEarn() {
+        return mSelectEarn;
     }
 
-    public void setSelectGet(boolean selectGet) {
-        mSelectGet = selectGet;
-        mSelectPay = !selectGet;
+    public void setSelectEarn(boolean selectEarn) {
+        mSelectEarn = selectEarn;
+        mSelectPay = !selectEarn;
     }
 
     public boolean isSelectPay() {
@@ -46,7 +46,7 @@ public class OneTally extends BaseObservable {
 
     public void setSelectPay(boolean selectPay) {
         mSelectPay = selectPay;
-        mSelectGet = !selectPay;
+        mSelectEarn = !selectPay;
     }
 
     public int getTallyType() {
