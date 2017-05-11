@@ -39,6 +39,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     private TallyTypeItemAdapter mAdapter;
 
+    private StringBuilder mMoney;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,10 +52,6 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mAdapter = new TallyTypeItemAdapter(getContext());
-        mAdapter.setOnItemClickListener(this);
-        initData();
-
         mPresenter = new Presenter();
         mBinding.setPresenter(mPresenter);
 
@@ -61,6 +59,10 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         mBinding.setOneTally(mOneTally);
 
         initViews();
+
+        mAdapter = new TallyTypeItemAdapter(getContext());
+        mAdapter.setOnItemClickListener(this);
+        initData();
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 5));
         mRecyclerView.setAdapter(mAdapter);
@@ -81,7 +83,6 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         int[] earnListImg = getContext().getResources().getIntArray(R.array.earn_list_drawable);
         String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
         for (int i = 0; i < earnListName.length; i++) {
-            System.out.println(earnListImg[i] + " : " + earnListName[i]);
             earnList.add(new TallyItem(earnListName[i], earnListImg[i]));
         }
         mAdapter.setEarnList(earnList);
@@ -94,6 +95,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         }
         mAdapter.setPayList(payList);
         mAdapter.setEarn(false);
+        mMoney = new StringBuilder("0.00");
+        mOneTally.setMoney(mMoney.toString());
     }
 
     @Override
@@ -104,7 +107,6 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         } else {
             item = mAdapter.getPayList().get(position);
         }
-        System.out.println(item.getItemDrawableId());
         mTvSelectItem.setText(item.getItemName());
         mIvSelectItem.setImageResource(item.getItemDrawableId() == 0 ? R.drawable.icon_other : item.getItemDrawableId());
     }
@@ -122,18 +124,20 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
                 mTvPay.setSelected(false);
                 mOneTally.setSelectEarn(true);
                 mAdapter.setEarn(true);
-                mAdapter.notifyDataSetChanged();
             } else if (view == mTvPay) {
                 mTvPay.setSelected(true);
                 mTvEarn.setSelected(false);
                 mOneTally.setSelectPay(true);
                 mAdapter.setEarn(false);
-                mAdapter.notifyDataSetChanged();
             }
         }
 
         public void onCloseClick() {
             finish();
+        }
+
+        public void onKeyboardNumClick(String value) {
+            System.out.println(value);
         }
     }
 }

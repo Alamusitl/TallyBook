@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.owl.tallybook.R;
 
 /**
+ * DataBinding Adapter for View attr
  * Created by Alamusi on 2017/5/11.
  */
 

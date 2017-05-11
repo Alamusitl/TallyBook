@@ -103,6 +103,10 @@ public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdap
         } else {
             mShowItemList = mPayList;
         }
+        notifyDataSetChanged();
+        if (mOnItemClickListener != null) {
+            mOnItemClickListener.onItemClick(null, 0);
+        }
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {

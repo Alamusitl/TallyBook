@@ -18,7 +18,7 @@ public class OneTally extends BaseObservable {
     private boolean mSelectEarn;
     private boolean mSelectPay;
     private int mTallyType;
-    private float mMoney;
+    private String mMoney;
     private List<String> mMembers;
     private String mDescription;
     private int mMoneyType;
@@ -57,11 +57,11 @@ public class OneTally extends BaseObservable {
         mTallyType = tallyType;
     }
 
-    public float getMoney() {
+    public String getMoney() {
         return mMoney;
     }
 
-    public void setMoney(float money) {
+    public void setMoney(String money) {
         mMoney = money;
     }
 
