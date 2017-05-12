@@ -17,21 +17,21 @@
         <item>编辑</item>
     </string-array>
 
-    <integer-array name="earn_list_drawable">
-        <item>@drawable/icon_wage</item>
-        <item>@drawable/icon_living_expenses</item>
-        <item>@drawable/icon_red_envelope</item>
-        <item>@drawable/icon_pin_money</item>
-        <item>@drawable/icon_extra_gains</item>
-        <item>@drawable/icon_invest</item>
-        <item>@drawable/icon_bonus</item>
-        <item>@drawable/icon_reimburse</item>
-        <item>@drawable/icon_cash</item>
-        <item>@drawable/icon_refund</item>
-        <item>@drawable/icon_alipay</item>
-        <item>@drawable/icon_other</item>
-        <item>@drawable/icon_edit</item>
-    </integer-array>
+    <string-array name="earn_list_drawable">
+        <item>icon_wage</item>
+        <item>icon_living_expenses</item>
+        <item>icon_red_envelope</item>
+        <item>icon_pin_money</item>
+        <item>icon_extra_gains</item>
+        <item>icon_invest</item>
+        <item>icon_bonus</item>
+        <item>icon_reimburse</item>
+        <item>icon_cash</item>
+        <item>icon_refund</item>
+        <item>icon_alipay</item>
+        <item>icon_other</item>
+        <item>icon_edit</item>
+    </string-array>
 
     <string-array name="payment_list_name">
         <item>一般</item>
@@ -53,23 +53,23 @@
         <item>编辑</item>
     </string-array>
 
-    <integer-array name="pay_list_drawable">
-        <item>@drawable/icon_common</item>
-        <item>@drawable/icon_dining</item>
-        <item>@drawable/icon_traffic</item>
-        <item>@drawable/icon_drinks</item>
-        <item>@drawable/icon_fruit</item>
-        <item>@drawable/icon_snacks</item>
-        <item>@drawable/icon_veggie</item>
-        <item>@drawable/icon_clothes</item>
-        <item>@drawable/icon_supplies</item>
-        <item>@drawable/icon_telephone_charge</item>
-        <item>@drawable/icon_cosmetic</item>
-        <item>@drawable/icon_rent</item>
-        <item>@drawable/icon_movie</item>
-        <item>@drawable/icon_taobao</item>
-        <item>@drawable/icon_red_envelope</item>
-        <item>@drawable/icon_medicine</item>
-        <item>@drawable/icon_other</item>
-    </integer-array>
+    <string-array name="pay_list_drawable">
+        <item>icon_common</item>
+        <item>icon_dining</item>
+        <item>icon_traffic</item>
+        <item>icon_drinks</item>
+        <item>icon_fruit</item>
+        <item>icon_snacks</item>
+        <item>icon_veggie</item>
+        <item>icon_clothes</item>
+        <item>icon_supplies</item>
+        <item>icon_telephone_charge</item>
+        <item>icon_cosmetic</item>
+        <item>icon_rent</item>
+        <item>icon_movie</item>
+        <item>icon_taobao</item>
+        <item>icon_red_envelope</item>
+        <item>icon_medicine</item>
+        <item>icon_other</item>
+    </string-array>
 </resources>

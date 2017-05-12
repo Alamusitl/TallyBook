@@ -16,6 +16,7 @@ import com.owl.tallybook.addone.model.OneTally;
 import com.owl.tallybook.addone.model.TallyItem;
 import com.owl.tallybook.base.BaseFragment;
 import com.owl.tallybook.databinding.FragmentAddOneBinding;
+import com.owl.tallybook.util.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,18 +81,18 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     public void initData() {
         List<TallyItem> earnList = new ArrayList<>();
-        int[] earnListImg = getContext().getResources().getIntArray(R.array.earn_list_drawable);
+        String[] earnListImg = getContext().getResources().getStringArray(R.array.earn_list_drawable);
         String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
         for (int i = 0; i < earnListName.length; i++) {
-            earnList.add(new TallyItem(earnListName[i], earnListImg[i]));
+            earnList.add(new TallyItem(earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
         }
         mAdapter.setEarnList(earnList);
 
         List<TallyItem> payList = new ArrayList<>();
-        int[] payListImg = getContext().getResources().getIntArray(R.array.pay_list_drawable);
+        String[] payListImg = getContext().getResources().getStringArray(R.array.pay_list_drawable);
         String[] payListName = getContext().getResources().getStringArray(R.array.payment_list_name);
         for (int i = 0; i < payListName.length; i++) {
-            payList.add(new TallyItem(payListName[i], payListImg[i]));
+            payList.add(new TallyItem(payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
         }
         mAdapter.setPayList(payList);
         mAdapter.setEarn(false);
@@ -137,6 +138,40 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         }
 
         public void onKeyboardNumClick(String value) {
+            switch (value) {
+                case "0":
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    break;
+                case "8":
+                    break;
+                case "9":
+                    break;
+                case ".":
+                    break;
+                case "C":
+                    break;
+                case "+":
+                    break;
+                case "-":
+                    break;
+                case "Del":
+                    break;
+                case "确定":
+                    break;
+            }
             System.out.println(value);
         }
     }
