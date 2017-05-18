@@ -23,7 +23,7 @@
         <activity android:name="com.owl.book.main.MainActivity"/>
         <activity android:name="com.owl.book.addone.AddOneActivity"/>
         <activity
-            android:name="com.owl.book.ChooseActivity"
+            android:name="com.owl.book.choose.ChooseActivity"
             android:theme="@style/AppTransparent"/>
     </application>
 

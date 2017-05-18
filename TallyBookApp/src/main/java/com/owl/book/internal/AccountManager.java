@@ -1,8 +1,8 @@
 package com.owl.book.internal;
 
-import com.owl.book.ChooseItem;
 import com.owl.book.bean.Account;
 import com.owl.book.bean.AccountDao;
+import com.owl.book.choose.ChooseItem;
 import com.owl.book.config.Constants;
 import com.owl.book.dao.DaoManager;
 

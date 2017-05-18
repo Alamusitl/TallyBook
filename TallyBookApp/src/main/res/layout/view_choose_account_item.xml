@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.owl.book.ChooseItem"/>
+            type="com.owl.book.choose.ChooseItem"/>
     </data>
 
     <RelativeLayout

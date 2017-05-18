@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.owl.book.ChooseActivity;
 import com.owl.book.R;
 import com.owl.book.addone.model.OneTally;
 import com.owl.book.addone.model.TallyItem;
 import com.owl.book.base.BaseFragment;
+import com.owl.book.choose.ChooseActivity;
 import com.owl.book.config.Constants;
 import com.owl.book.databinding.FragmentAddOneBinding;
 import com.owl.book.internal.AccountManager;

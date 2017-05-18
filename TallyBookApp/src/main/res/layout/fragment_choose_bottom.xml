@@ -5,7 +5,7 @@
 
         <variable
             name="presenter"
-            type="com.owl.book.ChooseFragment.Presenter"/>
+            type="com.owl.book.choose.ChooseFragment.Presenter"/>
     </data>
 
     <LinearLayout

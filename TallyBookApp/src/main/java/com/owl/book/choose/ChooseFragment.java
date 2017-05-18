@@ -1,4 +1,4 @@
-package com.owl.book;
+package com.owl.book.choose;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.config.Constants;
 import com.owl.book.databinding.FragmentChooseBottomBinding;

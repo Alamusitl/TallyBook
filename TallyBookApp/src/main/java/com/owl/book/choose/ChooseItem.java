@@ -1,7 +1,9 @@
-package com.owl.book;
+package com.owl.book.choose;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+
+import com.owl.book.BR;
 
 /**
  * Created by Imagine Owl on 2017/5/18.
