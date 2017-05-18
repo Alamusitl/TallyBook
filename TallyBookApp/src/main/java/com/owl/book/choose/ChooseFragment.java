@@ -63,8 +63,7 @@ public class ChooseFragment extends BaseFragment<FragmentChooseBottomBinding> im
         list.get(position).setSelect(true);
         Intent intent = new Intent();
         intent.putExtra(Constants.KEY_ACCOUNT_NAME, list.get(position).getName());
-        getActivity().setResult(Activity.RESULT_OK, intent);
-        mPresenter.onBackgroundClick(view);
+        finishWithResult(Activity.RESULT_OK, intent);
     }
 
     @Override
