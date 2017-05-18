@@ -6,11 +6,11 @@
 
         <variable
             name="bottomNav"
-            type="com.owl.tallybook.main.model.BottomNav"/>
+            type="com.owl.book.main.model.BottomNav"/>
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.main.MainFragment.Presenter"/>
+            type="com.owl.book.main.MainFragment.Presenter"/>
 
     </data>
 

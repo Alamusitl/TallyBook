@@ -6,11 +6,11 @@
 
         <variable
             name="oneTally"
-            type="com.owl.tallybook.addone.model.OneTally"/>
+            type="com.owl.book.addone.model.OneTally"/>
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.addone.AddOneFragment.Presenter"/>
+            type="com.owl.book.addone.AddOneFragment.Presenter"/>
 
     </data>
 
@@ -138,7 +138,8 @@
                     android:layout_marginTop="7dp"
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
-                    android:text="@string/add_select_account"/>
+                    android:onClick="@{presenter.onChooseAccountTypeClick}"
+                    android:text="@{oneTally.account}"/>
 
                 <TextView
                     android:id="@+id/id_add_date"

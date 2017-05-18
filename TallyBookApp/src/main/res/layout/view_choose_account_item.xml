@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.owl.book.ChooseItem"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/id_item_choose_account_icon"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen_10"
+            android:src="@{item.icon}"/>
+
+        <View
+            android:id="@+id/id_item_choose_account_divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignBottom="@+id/id_item_choose_account_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/id_item_choose_account_icon"
+            android:layout_toRightOf="@+id/id_item_choose_account_icon"
+            android:background="@drawable/shape_bg_line"
+            android:drawableBottom="@drawable/shape_bg_line"/>
+
+        <ImageView
+            android:id="@+id/id_item_choose_account_check"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/id_item_choose_account_divider"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen_10"
+            android:src="@drawable/icon_select_account"
+            android:visibility="@{item.select ? View.VISIBLE : View.INVISIBLE}"/>
+
+        <TextView
+            android:id="@+id/id_item_choose_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/id_item_choose_account_icon"
+            android:layout_toLeftOf="@+id/id_item_choose_account_check"
+            android:layout_toRightOf="@+id/id_item_choose_account_icon"
+            android:layout_toStartOf="@+id/id_item_choose_account_check"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/dimen_3"
+            android:paddingTop="@dimen/dimen_3"
+            android:text="@{item.name}"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/id_item_choose_account_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/id_item_choose_account_divider"
+            android:layout_below="@+id/id_item_choose_account_name"
+            android:layout_toEndOf="@+id/id_item_choose_account_icon"
+            android:layout_toLeftOf="@+id/id_item_choose_account_check"
+            android:layout_toRightOf="@+id/id_item_choose_account_icon"
+            android:layout_toStartOf="@+id/id_item_choose_account_check"
+            android:gravity="center_vertical"
+            android:text="@{item.balance}"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+</layout>

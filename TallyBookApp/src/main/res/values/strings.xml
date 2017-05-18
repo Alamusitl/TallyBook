@@ -12,5 +12,5 @@
 
     <string name="add_top_text_left">收入</string>
     <string name="add_top_text_right">支出</string>
-    <string name="add_select_account">选择账户</string>
+    <string name="add_choose_account">选择账户</string>
 </resources>

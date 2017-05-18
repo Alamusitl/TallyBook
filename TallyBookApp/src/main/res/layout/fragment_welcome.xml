@@ -5,7 +5,7 @@
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.welcome.WelcomeFragment.Presenter"/>
+            type="com.owl.book.welcome.WelcomeFragment.Presenter"/>
     </data>
 
     <LinearLayout

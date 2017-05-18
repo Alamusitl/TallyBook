@@ -6,11 +6,11 @@
 
         <variable
             name="item"
-            type="com.owl.tallybook.main.model.BottomNavItem"/>
+            type="com.owl.book.main.model.BottomNavItem"/>
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.main.MainFragment.Presenter"/>
+            type="com.owl.book.main.MainFragment.Presenter"/>
     </data>
 
     <RelativeLayout

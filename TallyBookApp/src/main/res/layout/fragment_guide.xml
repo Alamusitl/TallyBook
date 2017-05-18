@@ -7,11 +7,11 @@
 
         <variable
             name="guide"
-            type="com.owl.tallybook.guide.GuideModel"/>
+            type="com.owl.book.guide.GuideModel"/>
 
         <variable
             name="presenter"
-            type="com.owl.tallybook.guide.GuideFragment.Presenter"/>
+            type="com.owl.book.guide.GuideFragment.Presenter"/>
     </data>
 
     <RelativeLayout

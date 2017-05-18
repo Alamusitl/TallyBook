@@ -10,9 +10,14 @@
 
     <style name="AppTheme" parent="BaseTheme"/>
 
-    <style name="App.FullScreen" parent="BaseTheme">
+    <style name="AppFullScreen" parent="BaseTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTransparent" parent="AppFullScreen">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/color_half_transparent</item>
     </style>
 
     <style name="AppNumberKeyboard">

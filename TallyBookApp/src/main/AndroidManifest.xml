@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.owl.tallybook">
+          package="com.owl.book">
 
     <application
-        android:name=".TallyBookApplication"
+        android:name="com.owl.book.BookApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/App.FullScreen">
+        android:theme="@style/AppFullScreen">
         <activity
-            android:name=".welcome.WelcomeActivity">
+            android:name="com.owl.book.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,9 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".guide.GuideActivity"/>
-        <activity android:name=".main.MainActivity"/>
-        <activity android:name=".addone.AddOneActivity"/>
+        <activity android:name="com.owl.book.guide.GuideActivity"/>
+        <activity android:name="com.owl.book.main.MainActivity"/>
+        <activity android:name="com.owl.book.addone.AddOneActivity"/>
+        <activity
+            android:name="com.owl.book.ChooseActivity"
+            android:theme="@style/AppTransparent"/>
     </application>
 
 </manifest>
