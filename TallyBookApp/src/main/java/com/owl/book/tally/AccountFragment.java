@@ -1,4 +1,4 @@
-package com.owl.book.choose;
+package com.owl.book.tally;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.config.Constants;
-import com.owl.book.databinding.FragmentChooseBottomBinding;
+import com.owl.book.databinding.FragmentAccountBottomBinding;
 import com.owl.book.internal.AccountManager;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
@@ -24,16 +24,16 @@ import java.util.List;
  * Created by Imagine Owl on 2017/5/18.
  */
 
-public class ChooseFragment extends BaseFragment<FragmentChooseBottomBinding> implements BaseRecyclerAdapter.OnItemClickListener {
+public class AccountFragment extends BaseFragment<FragmentAccountBottomBinding> implements BaseRecyclerAdapter.OnItemClickListener {
 
     private RecyclerView mRecyclerView;
-    private ChooseItemAdapter mAdapter;
+    private AccountItemAdapter mAdapter;
     private Presenter mPresenter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        instanceBinding(inflater, R.layout.fragment_choose_bottom, container);
+        instanceBinding(inflater, R.layout.fragment_account_bottom, container);
         return mBinding.getRoot();
     }
 
@@ -45,9 +45,9 @@ public class ChooseFragment extends BaseFragment<FragmentChooseBottomBinding> im
 
         mRecyclerView = mBinding.idChooseRecyclerView;
 
-        mAdapter = new ChooseItemAdapter(getContext());
+        mAdapter = new AccountItemAdapter(getContext());
         mAdapter.setItemClickListener(this);
-        List<ChooseItem> dataList = AccountManager.getInstance().getAccountList();
+        List<AccountItem> dataList = AccountManager.getInstance().getAccountList();
         mAdapter.setDataList(dataList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
@@ -56,14 +56,15 @@ public class ChooseFragment extends BaseFragment<FragmentChooseBottomBinding> im
 
     @Override
     public void onItemClick(View view, int position) {
-        List<ChooseItem> list = mAdapter.getDataList();
+        List<AccountItem> list = mAdapter.getDataList();
         for (int i = 0; i < list.size(); i++) {
-            list.get(i).setSelect(false);
+            list.get(i).setIsSelect(false);
         }
-        list.get(position).setSelect(true);
+        list.get(position).setIsSelect(true);
         Intent intent = new Intent();
         intent.putExtra(Constants.KEY_ACCOUNT_NAME, list.get(position).getName());
-        finishWithResult(Activity.RESULT_OK, intent);
+        getActivity().setResult(Activity.RESULT_OK, intent);
+        getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
     }
 
     @Override
@@ -73,7 +74,7 @@ public class ChooseFragment extends BaseFragment<FragmentChooseBottomBinding> im
 
     public class Presenter {
         public void onBackgroundClick(View view) {
-            finish();
+            getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
         }
     }
 }

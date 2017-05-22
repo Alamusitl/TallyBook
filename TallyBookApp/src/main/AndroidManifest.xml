@@ -21,10 +21,7 @@
         </activity>
         <activity android:name="com.owl.book.guide.GuideActivity"/>
         <activity android:name="com.owl.book.main.MainActivity"/>
-        <activity android:name="com.owl.book.addone.AddOneActivity"/>
-        <activity
-            android:name="com.owl.book.choose.ChooseActivity"
-            android:theme="@style/AppTransparent"/>
+        <activity android:name="com.owl.book.tally.AddOneActivity"/>
     </application>
 
 </manifest>

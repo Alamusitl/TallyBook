@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.owl.book.choose.ChooseItem"/>
+            type="com.owl.book.tally.AccountItem"/>
     </data>
 
     <RelativeLayout
@@ -47,7 +47,7 @@
             android:contentDescription="@null"
             android:padding="@dimen/dimen_10"
             android:src="@drawable/icon_select_account"
-            android:visibility="@{item.select ? View.VISIBLE : View.INVISIBLE}"/>
+            android:visibility="@{item.isSelect ? View.VISIBLE : View.INVISIBLE}"/>
 
         <TextView
             android:id="@+id/id_item_choose_account_name"

@@ -6,7 +6,7 @@
 
         <variable
             name="tallyItem"
-            type="com.owl.book.addone.model.TallyItem"/>
+            type="com.owl.book.tally.model.TallyItem"/>
 
     </data>
 

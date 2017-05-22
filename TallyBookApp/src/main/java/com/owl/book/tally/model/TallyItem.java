@@ -1,4 +1,4 @@
-package com.owl.book.addone.model;
+package com.owl.book.tally.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;

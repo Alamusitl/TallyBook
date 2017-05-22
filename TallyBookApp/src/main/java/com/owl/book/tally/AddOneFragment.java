@@ -1,4 +1,4 @@
-package com.owl.book.addone;
+package com.owl.book.tally;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,13 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.owl.book.R;
-import com.owl.book.addone.model.OneTally;
-import com.owl.book.addone.model.TallyItem;
 import com.owl.book.base.BaseFragment;
-import com.owl.book.choose.ChooseActivity;
 import com.owl.book.config.Constants;
 import com.owl.book.databinding.FragmentAddOneBinding;
 import com.owl.book.internal.AccountManager;
+import com.owl.book.tally.model.OneTally;
+import com.owl.book.tally.model.TallyItem;
 import com.owl.book.util.ResUtils;
 
 import java.util.ArrayList;
@@ -104,12 +103,12 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println(requestCode);
+        System.out.println(requestCode + " " + resultCode);
         if (resultCode == Activity.RESULT_OK && data != null) {
             switch (requestCode) {
                 case KEY_CHOOSE_ACCOUNT:
-                    System.out.println(data.getStringExtra(Constants.KEY_ACCOUNT_NAME));
-                    mOneTally.setAccount(data.getStringExtra(Constants.KEY_ACCOUNT_NAME));
+                    System.out.println();
+                    mOneTally.getAccountItem().setName(data.getStringExtra(Constants.KEY_ACCOUNT_NAME));
                     break;
                 case KEY_CHOOSE_MEMBER:
                     break;
@@ -167,6 +166,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
         public void onCloseClick() {
             finish();
+            getActivity().overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
         }
 
         public void onKeyboardNumClick(String value) {
@@ -208,7 +208,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         }
 
         public void onChooseAccountTypeClick(View view) {
-            startActivityForResult(ChooseActivity.class, KEY_CHOOSE_ACCOUNT);
+            getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, new AccountFragment(), AccountManager.class.getName()).commit();
         }
     }
 }

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.owl.book.R;
-import com.owl.book.addone.AddOneActivity;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.databinding.FragmentMainBinding;
 import com.owl.book.main.fragment.DetailFragment;
@@ -16,6 +15,7 @@ import com.owl.book.main.fragment.FormFragment;
 import com.owl.book.main.fragment.MoreFragment;
 import com.owl.book.main.fragment.WalletFragment;
 import com.owl.book.main.model.BottomNav;
+import com.owl.book.tally.AddOneActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +61,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding> {
 
         public void onNavAddRecordClick() {
             startActivity(AddOneActivity.class);
+            getActivity().overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
         }
     }
 }

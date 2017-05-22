@@ -43,11 +43,6 @@ public class BaseFragment<T extends ViewDataBinding> extends Fragment {
         getActivity().finish();
     }
 
-    protected void finishWithResult(int code, Intent intent) {
-        getActivity().setResult(code, intent);
-        getActivity().finish();
-    }
-
     protected void d(String msg) {
         Log.d(TAG, msg);
     }

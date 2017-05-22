@@ -1,4 +1,4 @@
-package com.owl.book.addone;
+package com.owl.book.tally;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.owl.book.addone.model.TallyItem;
 import com.owl.book.databinding.ViewTallyTypeItemBinding;
 import com.owl.book.recycler.BindingViewHolder;
+import com.owl.book.tally.model.TallyItem;
 
 import java.util.ArrayList;
 import java.util.List;

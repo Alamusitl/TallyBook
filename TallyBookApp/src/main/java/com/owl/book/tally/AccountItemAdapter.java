@@ -1,4 +1,4 @@
-package com.owl.book.choose;
+package com.owl.book.tally;
 
 import android.content.Context;
 import android.view.ViewGroup;
@@ -10,9 +10,9 @@ import com.owl.book.recycler.BaseRecyclerAdapter;
  * Created by Imagine Owl on 2017/5/18.
  */
 
-public class ChooseItemAdapter extends BaseRecyclerAdapter<ChooseItem> {
+public class AccountItemAdapter extends BaseRecyclerAdapter<AccountItem> {
 
-    public ChooseItemAdapter(Context context) {
+    public AccountItemAdapter(Context context) {
         super(context);
     }
 
@@ -28,7 +28,7 @@ public class ChooseItemAdapter extends BaseRecyclerAdapter<ChooseItem> {
         }
 
         @Override
-        public void bind(ChooseItem data) {
+        public void bind(AccountItem data) {
             ((ViewChooseAccountItemBinding) mBinding).setItem(data);
             mBinding.executePendingBindings();
         }

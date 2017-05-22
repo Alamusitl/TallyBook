@@ -5,7 +5,7 @@
 
         <variable
             name="presenter"
-            type="com.owl.book.addone.AddOneFragment.Presenter"/>
+            type="com.owl.book.tally.AddOneFragment.Presenter"/>
     </data>
 
     <TableLayout

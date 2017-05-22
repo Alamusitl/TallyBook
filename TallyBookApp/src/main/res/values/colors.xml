@@ -12,5 +12,5 @@
     <color name="color_line_gray">#FFDEDDDD</color>
     <color name="color_select_item_text">#FF59C1ED</color>
     <color name="color_default_item_text">#FFDEDDDD</color>
-    <color name="color_half_transparent">#33000000</color>
+    <color name="color_half_transparent">#44000000</color>
 </resources>

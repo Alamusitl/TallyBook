@@ -1,22 +1,14 @@
 package com.owl.book.internal;
 
-import com.owl.book.bean.Account;
-import com.owl.book.bean.AccountDao;
-import com.owl.book.choose.ChooseItem;
-import com.owl.book.config.Constants;
+import com.owl.book.R;
 import com.owl.book.dao.DaoManager;
+import com.owl.book.tally.AccountItem;
+import com.owl.book.tally.AccountItemDao;
 
 import org.greenrobot.greendao.query.Query;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-
-import io.reactivex.Single;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by Imagine Owl on 2017/5/17.
@@ -26,10 +18,10 @@ public class AccountManager {
 
     private static AccountManager sInstance = null;
 
-    private AccountDao mAccountDao = null;
+    private AccountItemDao mAccountItemDao = null;
 
-    public AccountManager() {
-        mAccountDao = DaoManager.getInstance().getDaoSession().getAccountDao();
+    private AccountManager() {
+        mAccountItemDao = DaoManager.getInstance().getDaoSession().getAccountItemDao();
         if (!hasDataInDao()) {
             loadProperties();
         }
@@ -46,44 +38,30 @@ public class AccountManager {
         return sInstance;
     }
 
-    public List<ChooseItem> getAccountList() {
-        List<ChooseItem> list = new ArrayList<>();
-        Query<Account> accountQuery = mAccountDao.queryBuilder().orderAsc(AccountDao.Properties.Id).build();
-        List<Account> accounts = accountQuery.list();
-        for (Account account : accounts) {
-            list.add(new ChooseItem(account.getName()));
+    public List<AccountItem> getAccountList() {
+        List<AccountItem> list = new ArrayList<>();
+        Query<AccountItem> accountQuery = mAccountItemDao.queryBuilder().orderAsc(AccountItemDao.Properties.Id).build();
+        List<AccountItem> accounts = accountQuery.list();
+        for (AccountItem account : accounts) {
+            list.add(account);
         }
         return list;
     }
 
     private boolean hasDataInDao() {
-        Query<Account> accountQuery = mAccountDao.queryBuilder().orderAsc(AccountDao.Properties.Id).build();
+        Query<AccountItem> accountQuery = mAccountItemDao.queryBuilder().orderAsc(AccountItemDao.Properties.Id).build();
         if (accountQuery == null) {
             return false;
         }
-        List<Account> accounts = accountQuery.list();
+        List<AccountItem> accounts = accountQuery.list();
         return !(accounts == null || accounts.isEmpty());
     }
 
     private void loadProperties() {
-        Single.just(Constants.ACCOUNT_PROPERTIES).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(@NonNull String file) throws Exception {
-                Properties properties = new Properties();
-                try {
-                    properties.load(new InputStreamReader(AccountManager.class.getResourceAsStream(file), Constants.DEFAULT_CHARSET));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (properties.isEmpty()) {
-                    return;
-                }
-                for (Object key : properties.keySet()) {
-                    String value = (String) properties.get(key);
-                    System.out.println(key + " : " + value);
-                    mAccountDao.insert(new Account(Long.parseLong((String) key), value));
-                }
-            }
-        });
+        mAccountItemDao.insert(new AccountItem(1, R.drawable.icon_alipay, "支付宝"));
+        mAccountItemDao.insert(new AccountItem(2, R.drawable.icon_alipay, "微信钱包"));
+        mAccountItemDao.insert(new AccountItem(3, R.drawable.icon_alipay, "现金"));
+        mAccountItemDao.insert(new AccountItem(4, R.drawable.icon_alipay, "招商银行卡"));
+        mAccountItemDao.insert(new AccountItem(5, R.drawable.icon_alipay, "工商银行卡"));
     }
 }

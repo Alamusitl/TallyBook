@@ -5,7 +5,7 @@
 
         <variable
             name="presenter"
-            type="com.owl.book.choose.ChooseFragment.Presenter"/>
+            type="com.owl.book.tally.AccountFragment.Presenter"/>
     </data>
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@color/color_half_transparent"
             android:onClick="@{presenter.onBackgroundClick}"/>
 
         <TextView
