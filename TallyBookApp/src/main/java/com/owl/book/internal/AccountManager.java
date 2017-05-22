@@ -7,7 +7,6 @@ import com.owl.book.tally.AccountItemDao;
 
 import org.greenrobot.greendao.query.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,13 +38,8 @@ public class AccountManager {
     }
 
     public List<AccountItem> getAccountList() {
-        List<AccountItem> list = new ArrayList<>();
         Query<AccountItem> accountQuery = mAccountItemDao.queryBuilder().orderAsc(AccountItemDao.Properties.Id).build();
-        List<AccountItem> accounts = accountQuery.list();
-        for (AccountItem account : accounts) {
-            list.add(account);
-        }
-        return list;
+        return accountQuery.list();
     }
 
     private boolean hasDataInDao() {
