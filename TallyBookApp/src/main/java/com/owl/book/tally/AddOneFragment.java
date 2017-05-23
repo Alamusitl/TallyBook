@@ -1,9 +1,8 @@
 package com.owl.book.tally;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,9 +14,10 @@ import android.widget.TextView;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
-import com.owl.book.config.Constants;
+import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentAddOneBinding;
-import com.owl.book.internal.AccountManager;
+import com.owl.book.tally.account.AccountFragment;
+import com.owl.book.tally.member.MemberFragment;
 import com.owl.book.tally.model.OneTally;
 import com.owl.book.tally.model.TallyItem;
 import com.owl.book.util.ResUtils;
@@ -30,11 +30,6 @@ import java.util.List;
  */
 
 public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implements TallyTypeItemAdapter.OnItemClickListener {
-
-    public static final int KEY_CHOOSE_ACCOUNT = 1;
-    public static final int KEY_CHOOSE_MEMBER = 2;
-    public static final int KEY_CHOOSE_DATE = 3;
-    public static final int KEY_INPUT_DESC = 4;
 
     private TextView mTvEarn;
     private TextView mTvPay;
@@ -50,6 +45,9 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     private TallyTypeItemAdapter mAdapter;
 
     private StringBuilder mMoney;
+
+    private Fragment mAccountFragment;
+    private Fragment mMemberFragment;
 
     private void initViews() {
         mTvEarn = mBinding.idAddEarn;
@@ -98,26 +96,6 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     @Override
     public void onItemLongClick(View view, int position) {
         // ignore
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println(requestCode + " " + resultCode);
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            switch (requestCode) {
-                case KEY_CHOOSE_ACCOUNT:
-                    System.out.println();
-                    mOneTally.getAccountItem().setName(data.getStringExtra(Constants.KEY_ACCOUNT_NAME));
-                    break;
-                case KEY_CHOOSE_MEMBER:
-                    break;
-                case KEY_CHOOSE_DATE:
-                    break;
-                case KEY_INPUT_DESC:
-                    break;
-            }
-        }
     }
 
     @Nullable
@@ -208,7 +186,30 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         }
 
         public void onChooseAccountTypeClick(View view) {
-            getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, new AccountFragment(), AccountManager.class.getName()).commit();
+            if (getFragmentManager().findFragmentByTag(AccountManager.class.getName()) == null) {
+                mAccountFragment = new AccountFragment();
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mAccountFragment, AccountManager.class.getName()).commit();
+            } else {
+                getFragmentManager().beginTransaction().show(mAccountFragment).commit();
+            }
+        }
+
+        public void onChooseDateClick(View view) {
+
+        }
+
+        public void onChooseMemberClick(View view) {
+            view.setSelected(true);
+            if (getFragmentManager().findFragmentByTag(MemberFragment.class.getName()) == null) {
+                mMemberFragment = new MemberFragment();
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mMemberFragment, MemberFragment.class.getName()).commit();
+            } else {
+                getFragmentManager().beginTransaction().show(mMemberFragment).commit();
+            }
+        }
+
+        public void onAddDescriptionClick(View view) {
+            view.setSelected(true);
         }
     }
 }

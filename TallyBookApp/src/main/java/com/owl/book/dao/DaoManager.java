@@ -1,7 +1,6 @@
 package com.owl.book.dao;
 
-
-import com.owl.book.tally.DaoSession;
+import com.owl.book.tally.account.DaoSession;
 
 /**
  * Created by Imagine Owl on 2017/5/17.

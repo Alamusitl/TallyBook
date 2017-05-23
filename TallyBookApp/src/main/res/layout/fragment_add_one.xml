@@ -139,7 +139,7 @@
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
                     android:onClick="@{presenter.onChooseAccountTypeClick}"
-                    android:text="@{oneTally.accountItem.name}"/>
+                    android:text="@{oneTally.account.name}"/>
 
                 <TextView
                     android:id="@+id/id_add_date"
@@ -153,6 +153,7 @@
                     android:layout_toRightOf="@id/id_add_account"
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
+                    android:onClick="@{presenter.onChooseDateClick}"
                     android:text="@{oneTally.showDate}"/>
 
                 <ImageView
@@ -163,6 +164,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:contentDescription="@null"
+                    android:onClick="@{presenter.onAddDescriptionClick}"
                     android:paddingBottom="7dp"
                     android:paddingEnd="@dimen/dimen_0"
                     android:paddingLeft="2dp"
@@ -181,6 +183,7 @@
                     android:layout_toLeftOf="@id/id_add_description"
                     android:layout_toStartOf="@id/id_add_description"
                     android:contentDescription="@null"
+                    android:onClick="@{presenter.onChooseMemberClick}"
                     android:padding="7dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/add_member"/>

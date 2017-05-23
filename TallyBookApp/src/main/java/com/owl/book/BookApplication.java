@@ -3,7 +3,7 @@ package com.owl.book;
 import android.app.Application;
 
 import com.owl.book.dao.DaoManager;
-import com.owl.book.tally.DaoMaster;
+import com.owl.book.tally.account.DaoMaster;
 
 import org.greenrobot.greendao.database.Database;
 

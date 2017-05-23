@@ -72,4 +72,10 @@
         <item>icon_medicine</item>
         <item>icon_other</item>
     </string-array>
+
+    <string-array name="member_list">
+        <item>@string/member_me</item>
+        <item>@string/member_father</item>
+        <item>@string/member_mother</item>
+    </string-array>
 </resources>
