@@ -1,27 +1,35 @@
 package com.owl.book.tally.member;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.owl.book.BR;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Transient;
 
 /**
  * Created by Imagine Owl on 2017/5/23.
  */
 @Entity
-public class Member {
+public class Member extends BaseObservable {
 
     @Id
     @Index
     private long id;
     @NotNull
-    private String name;
+    private String memberName;
+    @Transient
+    private boolean isMemberSelect;
 
-    @Generated(hash = 1746766827)
-    public Member(long id, @NotNull String name) {
+    @Generated(hash = 1637190266)
+    public Member(long id, @NotNull String memberName) {
         this.id = id;
-        this.name = name;
+        this.memberName = memberName;
     }
 
     @Generated(hash = 367284327)
@@ -36,11 +44,23 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    @Bindable
+    public String getMemberName() {
+        return this.memberName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+        notifyPropertyChanged(BR.memberName);
+    }
+
+    @Bindable
+    public boolean isMemberSelect() {
+        return isMemberSelect;
+    }
+
+    public void setMemberSelect(boolean memberSelect) {
+        isMemberSelect = memberSelect;
+        notifyPropertyChanged(BR.memberSelect);
     }
 }

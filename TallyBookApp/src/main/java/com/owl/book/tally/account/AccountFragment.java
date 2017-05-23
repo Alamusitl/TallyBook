@@ -55,9 +55,9 @@ public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> 
     public void onItemClick(View view, int position) {
         List<Account> list = mAdapter.getDataList();
         for (int i = 0; i < list.size(); i++) {
-            list.get(i).setIsSelect(false);
+            list.get(i).setAccountSelect(false);
         }
-        list.get(position).setIsSelect(true);
+        list.get(position).setAccountSelect(true);
         getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
     }
 

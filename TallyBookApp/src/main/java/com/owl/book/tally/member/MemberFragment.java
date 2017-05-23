@@ -53,12 +53,13 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
     @Override
     public void onItemClick(View view, int position) {
-
+        List<Member> list = mAdapter.getDataList();
+        list.get(position).setMemberSelect(true);
     }
 
     @Override
     public void onItemLongClick(View view, int position) {
-
+        onItemClick(view, position);
     }
 
     public class Presenter {
@@ -71,7 +72,7 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
         }
 
         public void onDoneClick(View view) {
-
+            getFragmentManager().beginTransaction().hide(MemberFragment.this).commit();
         }
     }
 }

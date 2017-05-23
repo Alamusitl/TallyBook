@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="item"
             type="com.owl.book.tally.member.Member"/>
@@ -13,14 +15,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:padding="@dimen/dimen_15"
-            android:text="@{item.name}"
-            android:textSize="16sp">
-        </TextView>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimen_15"
+                android:text="@{item.memberName}"
+                android:textSize="16sp">
+            </TextView>
+
+            <ImageView
+                android:id="@+id/id_item_choose_account_check"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:padding="@dimen/dimen_20"
+                android:src="@drawable/icon_select_account"
+                android:visibility="@{item.isMemberSelect ? View.VISIBLE : View.INVISIBLE}"/>
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"

@@ -23,81 +23,80 @@ public class Account extends BaseObservable {
     @Index
     private long id;
     @NotNull
-    private int icon;
+    private int accountIcon;
     @NotNull
-    private String name;
-    private String balance;
+    private String accountName;
+    private String accountBalance;
     @Transient
-    private boolean isSelect;
+    private boolean isAccountSelect;
 
     public Account() {
-        name = "选择账户";
-        balance = "0.00";
-        isSelect = false;
+        accountName = "选择账户";
+        accountBalance = "0.00";
+        isAccountSelect = false;
     }
 
-    public Account(long id, int icon, String name) {
+    public Account(long id, int accountIcon, String accountName) {
         this();
         this.id = id;
-        this.icon = icon;
-        this.name = name;
+        this.accountIcon = accountIcon;
+        this.accountName = accountName;
     }
 
-    @Generated(hash = 1079990225)
-    public Account(long id, int icon, @NotNull String name, String balance) {
+    @Generated(hash = 1951863264)
+    public Account(long id, int accountIcon, @NotNull String accountName,
+                   String accountBalance) {
         this.id = id;
-        this.icon = icon;
-        this.name = name;
-        this.balance = balance;
+        this.accountIcon = accountIcon;
+        this.accountName = accountName;
+        this.accountBalance = accountBalance;
     }
 
-    @Bindable
     public long getId() {
         return this.id;
     }
 
     public void setId(long id) {
         this.id = id;
-        notifyPropertyChanged(BR.id);
     }
 
     @Bindable
-    public int getIcon() {
-        return this.icon;
+    public int getAccountIcon() {
+        return this.accountIcon;
     }
 
-    public void setIcon(int icon) {
-        this.icon = icon;
-        notifyPropertyChanged(BR.icon);
-    }
-
-    @Bindable
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-        notifyPropertyChanged(BR.name);
+    public void setAccountIcon(int accountIcon) {
+        this.accountIcon = accountIcon;
+        notifyPropertyChanged(BR.accountIcon);
     }
 
     @Bindable
-    public String getBalance() {
-        return this.balance;
+    public String getAccountName() {
+        return this.accountName;
     }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
-        notifyPropertyChanged(BR.balance);
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+        notifyPropertyChanged(BR.accountName);
     }
 
     @Bindable
-    public boolean getIsSelect() {
-        return this.isSelect;
+    public String getAccountBalance() {
+        return this.accountBalance;
     }
 
-    public void setIsSelect(boolean isSelect) {
-        this.isSelect = isSelect;
-        notifyPropertyChanged(BR.isSelect);
+    public void setAccountBalance(String accountBalance) {
+        this.accountBalance = accountBalance;
+        notifyPropertyChanged(BR.accountBalance);
+    }
+
+    @Bindable
+    public boolean isAccountSelect() {
+        return this.isAccountSelect;
+    }
+
+    public void setAccountSelect(boolean isSelect) {
+        this.isAccountSelect = isSelect;
+        notifyPropertyChanged(BR.accountSelect);
     }
 }
