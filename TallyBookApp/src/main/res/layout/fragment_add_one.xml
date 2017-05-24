@@ -139,7 +139,7 @@
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
                     android:onClick="@{presenter.onChooseAccountTypeClick}"
-                    android:text="@{oneTally.account.name}"/>
+                    android:text="@{oneTally.account.accountName}"/>
 
                 <TextView
                     android:id="@+id/id_add_date"

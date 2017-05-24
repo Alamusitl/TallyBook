@@ -14,6 +14,7 @@ import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentChooseAccountBinding;
 import com.owl.book.recycler.BaseRecyclerAdapter;
+import com.owl.book.tally.AddOneFragment;
 
 import java.util.List;
 
@@ -69,6 +70,7 @@ public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> 
     public class Presenter {
         public void onBackgroundClick(View view) {
             getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
+            dismiss(AddOneFragment.class, AccountFragment.this, null);
         }
     }
 }

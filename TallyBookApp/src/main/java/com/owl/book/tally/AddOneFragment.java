@@ -17,6 +17,8 @@ import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentAddOneBinding;
 import com.owl.book.tally.account.AccountFragment;
+import com.owl.book.tally.date.DatePickerFragment;
+import com.owl.book.tally.desc.AddDescFragment;
 import com.owl.book.tally.member.MemberFragment;
 import com.owl.book.tally.model.OneTally;
 import com.owl.book.tally.model.TallyItem;
@@ -37,6 +39,11 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     private TextView mTvSelectItem;
     private ImageView mIvSelectItem;
 
+    private View mChooseAccountView;
+    private View mChooseDateView;
+    private View mChooseMemberView;
+    private View mEditDescView;
+
     private RecyclerView mRecyclerView;
 
     private Presenter mPresenter;
@@ -48,6 +55,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     private Fragment mAccountFragment;
     private Fragment mMemberFragment;
+    private Fragment mAddDescFragment;
+    private Fragment mDatePickFragment;
 
     private void initViews() {
         mTvEarn = mBinding.idAddEarn;
@@ -95,19 +104,20 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     @Override
     public void onItemLongClick(View view, int position) {
-        // ignore
+        onItemClick(view, position);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         instanceBinding(inflater, R.layout.fragment_add_one, container);
+        registerEventListener(AddOneFragment.class, this);
         return mBinding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         mPresenter = new Presenter();
         mBinding.setPresenter(mPresenter);
@@ -124,6 +134,37 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 5));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unregisterEventListener(AddOneFragment.class, this);
+    }
+
+    @Override
+    public void dismiss(Class clz, Fragment fragment, Bundle bundle) {
+        if (fragment == mAccountFragment) {
+            mChooseAccountView.setSelected(false);
+            if (bundle != null) {
+
+            }
+        } else if (fragment == mMemberFragment) {
+            mChooseMemberView.setSelected(false);
+            if (bundle != null) {
+
+            }
+        } else if (fragment == mAddDescFragment) {
+            mEditDescView.setSelected(false);
+            if (bundle != null) {
+                String desc = bundle.getString(AddDescFragment.KEY_DESC);
+            }
+        } else if (fragment == mDatePickFragment) {
+            mChooseDateView.setSelected(false);
+            if (bundle != null) {
+
+            }
+        }
     }
 
     public class Presenter {
@@ -186,30 +227,45 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         }
 
         public void onChooseAccountTypeClick(View view) {
-            if (getFragmentManager().findFragmentByTag(AccountManager.class.getName()) == null) {
+            mChooseAccountView = view;
+            if (mAccountFragment == null) {
                 mAccountFragment = new AccountFragment();
-                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mAccountFragment, AccountManager.class.getName()).commit();
-            } else {
-                getFragmentManager().beginTransaction().show(mAccountFragment).commit();
             }
+            handleClick(AccountFragment.class, mAccountFragment);
         }
 
         public void onChooseDateClick(View view) {
-
+            mChooseDateView = view;
+            if (mDatePickFragment == null) {
+                mDatePickFragment = new DatePickerFragment();
+            }
+            handleClick(DatePickerFragment.class, mDatePickFragment);
         }
 
         public void onChooseMemberClick(View view) {
+            mChooseMemberView = view;
             view.setSelected(true);
-            if (getFragmentManager().findFragmentByTag(MemberFragment.class.getName()) == null) {
+            if (mMemberFragment == null) {
                 mMemberFragment = new MemberFragment();
-                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mMemberFragment, MemberFragment.class.getName()).commit();
-            } else {
-                getFragmentManager().beginTransaction().show(mMemberFragment).commit();
             }
+            handleClick(MemberFragment.class, mMemberFragment);
         }
 
         public void onAddDescriptionClick(View view) {
+            mEditDescView = view;
             view.setSelected(true);
+            if (mAddDescFragment == null) {
+                mAddDescFragment = new AddDescFragment();
+            }
+            handleClick(AddDescFragment.class, mAddDescFragment);
+        }
+
+        private void handleClick(Class clz, Fragment fragment) {
+            if (getFragmentManager().findFragmentByTag(clz.getName()) == null) {
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, fragment, clz.getName()).commit();
+            } else {
+                getFragmentManager().beginTransaction().show(fragment).commit();
+            }
         }
     }
 }

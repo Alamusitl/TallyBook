@@ -14,7 +14,9 @@ import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.MemberManager;
 import com.owl.book.databinding.FragmentChooseMemberBinding;
 import com.owl.book.recycler.BaseRecyclerAdapter;
+import com.owl.book.tally.AddOneFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> implements BaseRecyclerAdapter.OnItemClickListener {
 
+    private static final String KEY_MEMBERS = "members";
     private RecyclerView mRecyclerView;
     private Presenter mPresenter;
     private MemberAdapter mAdapter;
@@ -64,7 +67,7 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
     public class Presenter {
         public void onBackgroundClick(View view) {
-            getFragmentManager().beginTransaction().hide(MemberFragment.this).commit();
+            dismiss(AddOneFragment.class, MemberFragment.this, null);
         }
 
         public void onEditClick(View view) {
@@ -72,7 +75,20 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
         }
 
         public void onDoneClick(View view) {
+            Bundle bundle = new Bundle();
+            ArrayList<String> members = new ArrayList<>();
+            for (int i = 0; i < mAdapter.getDataList().size(); i++) {
+                if (mAdapter.getDataList().get(i).isMemberSelect()) {
+                    members.add(mAdapter.getDataList().get(i).getMemberName());
+                }
+            }
+            bundle.putStringArrayList(KEY_MEMBERS, members);
+            handleDismiss(bundle);
+        }
+
+        private void handleDismiss(Bundle bundle) {
             getFragmentManager().beginTransaction().hide(MemberFragment.this).commit();
+            dismiss(AddOneFragment.class, MemberFragment.this, bundle);
         }
     }
 }
