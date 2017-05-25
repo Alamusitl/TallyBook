@@ -22,4 +22,12 @@
     <string name="member_mother">妈妈</string>
 
     <string name="input_desc">输入备注</string>
+
+    <string name="manage_member_member">成员</string>
+    <string name="manage_member_manager">成员管理</string>
+    <string name="manage_member_default_setting">默认设置</string>
+    <string name="manage_member_new_member_hint">新建成员</string>
+    <string name="manage_member_done">完成</string>
+    <string name="manage_member_default">(默认)</string>
+    <string name="manage_member_choose_default">选择默认成员</string>
 </resources>

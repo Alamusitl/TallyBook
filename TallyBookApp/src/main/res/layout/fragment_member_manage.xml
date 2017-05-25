@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.owl.book.tally.member.MemberManageFragment.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF4F6F4"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:background="#FFFBFDFB"/>
+
+        <RelativeLayout
+            android:id="@+id/id_manage_member_title"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:background="#FFFBFDFB">
+
+            <ImageView
+                android:id="@+id/id_manage_member_title_back"
+                android:layout_width="34dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:onClick="@{() -> presenter.onBackClick()}"
+                android:scaleType="fitEnd"
+                android:src="@drawable/ic_back_blue"/>
+
+            <TextView
+                android:id="@+id/id_manage_member_title_pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/id_manage_member_title_back"
+                android:layout_toRightOf="@+id/id_manage_member_title_back"
+                android:gravity="center_vertical"
+                android:onClick="@{() -> presenter.onBackClick()}"
+                android:text="@string/manage_member_member"
+                android:textColor="#FF2FB2E8"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/id_manage_member_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/manage_member_manager"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/id_manage_member_title_next"
+                android:layout_width="103dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:onClick="@{() -> presenter.onDefaultSettingClick()}"
+                android:paddingEnd="@dimen/dimen_5"
+                android:paddingLeft="@dimen/dimen_0"
+                android:paddingRight="@dimen/dimen_5"
+                android:paddingStart="@dimen/dimen_0"
+                android:text="@string/manage_member_default_setting"
+                android:textColor="#FF2FB2E8"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_manage_member_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_weight="1"
+            android:background="#FFFBFDFB"/>
+
+        <LinearLayout
+            android:id="@+id/id_manage_member_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/id_manage_member_input"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:background="#FFFEFFFE"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:hint="@string/manage_member_new_member_hint"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_0"
+                android:paddingLeft="11dp"
+                android:paddingRight="@dimen/dimen_0"
+                android:paddingStart="11dp"/>
+
+            <TextView
+                android:layout_width="86dp"
+                android:layout_height="57dp"
+                android:background="#FFCECECC"
+                android:gravity="center"
+                android:onClick="@{() -> presenter.onAddMemberClick()}"
+                android:text="@string/manage_member_done"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

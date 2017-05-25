@@ -46,7 +46,7 @@
             android:layout_alignParentTop="true"
             android:contentDescription="@null"
             android:padding="@dimen/dimen_20"
-            android:src="@drawable/icon_select_account"
+            android:src="@drawable/ic_select_blue"
             android:visibility="@{item.accountSelect ? View.VISIBLE : View.INVISIBLE}"/>
 
         <TextView

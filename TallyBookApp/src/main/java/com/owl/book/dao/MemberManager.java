@@ -45,4 +45,16 @@ public class MemberManager extends BaseDaoManager<MemberDao> {
         mMemberDao.insert(new Member(2, "爸爸"));
         mMemberDao.insert(new Member(3, "妈妈"));
     }
+
+    public void insertMember(Member member) {
+        mMemberDao.insertOrReplace(member);
+    }
+
+    public void updateMember(Member member) {
+        mMemberDao.update(member);
+    }
+
+    public void deleteMember(Member member) {
+        mMemberDao.delete(member);
+    }
 }

@@ -25,10 +25,11 @@ import java.util.List;
 
 public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> implements BaseRecyclerAdapter.OnItemClickListener {
 
-    private static final String KEY_MEMBERS = "members";
+    public static final String KEY_MEMBERS = "members";
     private RecyclerView mRecyclerView;
     private Presenter mPresenter;
     private MemberAdapter mAdapter;
+    private MemberManageFragment mMemberManageFragment;
 
     @Nullable
     @Override
@@ -67,11 +68,17 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
     public class Presenter {
         public void onBackgroundClick(View view) {
-            dismiss(AddOneFragment.class, MemberFragment.this, null);
+            handleDismiss(null);
         }
 
         public void onEditClick(View view) {
-
+            String tag = MemberManageFragment.class.getName();
+            if (getFragmentManager().findFragmentByTag(tag) == null) {
+                mMemberManageFragment = new MemberManageFragment();
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mMemberManageFragment, tag).commit();
+            } else {
+                getFragmentManager().beginTransaction().show(mMemberManageFragment).commit();
+            }
         }
 
         public void onDoneClick(View view) {

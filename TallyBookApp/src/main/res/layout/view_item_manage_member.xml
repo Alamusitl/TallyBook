@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="member"
+            type="com.owl.book.tally.member.Member"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+
+        <TextView
+            android:id="@+id/id_manage_member_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_18"
+            android:layout_marginStart="@dimen/dimen_18"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="@{member.memberName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/id_manage_member_item_name"
+            android:layout_toRightOf="@+id/id_manage_member_item_name"
+            android:gravity="center"
+            android:paddingEnd="@dimen/dimen_0"
+            android:paddingLeft="@dimen/dimen_5"
+            android:paddingRight="@dimen/dimen_0"
+            android:paddingStart="@dimen/dimen_5"
+            android:text="@string/manage_member_default"
+            android:visibility="@{member.isMemberDefault ? View.VISIBLE : View.GONE}"/>
+
+        <ImageView
+            android:id="@+id/id_manage_member_item_img"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen_20"
+            android:src="@drawable/ic_select_blue"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+</layout>

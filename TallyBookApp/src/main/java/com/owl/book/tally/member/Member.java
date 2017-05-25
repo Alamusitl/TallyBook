@@ -25,15 +25,25 @@ public class Member extends BaseObservable {
     private String memberName;
     @Transient
     private boolean isMemberSelect;
+    @NotNull
+    private boolean isMemberDefault;
 
-    @Generated(hash = 1637190266)
-    public Member(long id, @NotNull String memberName) {
+    @Generated(hash = 944793846)
+    public Member(long id, @NotNull String memberName, boolean isMemberDefault) {
         this.id = id;
         this.memberName = memberName;
+        this.isMemberDefault = isMemberDefault;
     }
 
     @Generated(hash = 367284327)
     public Member() {
+    }
+
+    public Member(long id, String memberName) {
+        this.id = id;
+        this.memberName = memberName;
+        this.isMemberSelect = false;
+        this.isMemberDefault = false;
     }
 
     public long getId() {
@@ -62,5 +72,15 @@ public class Member extends BaseObservable {
     public void setMemberSelect(boolean memberSelect) {
         isMemberSelect = memberSelect;
         notifyPropertyChanged(BR.memberSelect);
+    }
+
+    @Bindable
+    public boolean getIsMemberDefault() {
+        return this.isMemberDefault;
+    }
+
+    public void setIsMemberDefault(boolean isMemberDefault) {
+        this.isMemberDefault = isMemberDefault;
+        notifyPropertyChanged(BR.isMemberDefault);
     }
 }

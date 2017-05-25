@@ -152,7 +152,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         } else if (fragment == mMemberFragment) {
             mChooseMemberView.setSelected(false);
             if (bundle != null) {
-
+                List<String> members = bundle.getStringArrayList(MemberFragment.KEY_MEMBERS);
             }
         } else if (fragment == mAddDescFragment) {
             mEditDescView.setSelected(false);

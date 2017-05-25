@@ -36,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:padding="@dimen/dimen_20"
-                android:src="@drawable/icon_select_account"
+                android:src="@drawable/ic_select_blue"
                 android:visibility="@{item.isMemberSelect ? View.VISIBLE : View.INVISIBLE}"/>
         </LinearLayout>
 
