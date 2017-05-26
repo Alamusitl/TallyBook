@@ -35,6 +35,7 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         instanceBinding(inflater, R.layout.fragment_choose_member, container);
+        registerEventListener();
         return mBinding.getRoot();
     }
 
@@ -56,9 +57,20 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unregisterEventListener();
+    }
+
+    @Override
+    public void handleDismiss(String src, Bundle extras) {
+        super.handleDismiss(src, extras);
+    }
+
+    @Override
     public void onItemClick(View view, int position) {
         List<Member> list = mAdapter.getDataList();
-        list.get(position).setMemberSelect(true);
+        list.get(position).setMemberSelect(!list.get(position).isMemberSelect());
     }
 
     @Override
@@ -95,7 +107,7 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
         private void handleDismiss(Bundle bundle) {
             getFragmentManager().beginTransaction().hide(MemberFragment.this).commit();
-            dismiss(AddOneFragment.class, MemberFragment.this, bundle);
+            dismiss(AddOneFragment.class.getName(), bundle);
         }
     }
 }

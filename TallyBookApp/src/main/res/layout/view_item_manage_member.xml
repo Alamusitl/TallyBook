@@ -14,14 +14,18 @@
         android:layout_width="match_parent"
         android:layout_height="52dp">
 
-        <TextView
+        <EditText
             android:id="@+id/id_manage_member_item_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dimen_18"
             android:layout_marginStart="@dimen/dimen_18"
             android:background="@null"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center_vertical"
+            android:imeActionLabel="@string/member_done"
+            android:imeOptions="actionDone"
             android:text="@{member.memberName}"/>
 
         <TextView

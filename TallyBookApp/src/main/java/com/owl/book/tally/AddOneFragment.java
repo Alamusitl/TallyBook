@@ -53,10 +53,10 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     private StringBuilder mMoney;
 
-    private Fragment mAccountFragment;
-    private Fragment mMemberFragment;
-    private Fragment mAddDescFragment;
-    private Fragment mDatePickFragment;
+    private AccountFragment mAccountFragment;
+    private MemberFragment mMemberFragment;
+    private AddDescFragment mAddDescFragment;
+    private DatePickerFragment mDatePickFragment;
 
     private void initViews() {
         mTvEarn = mBinding.idAddEarn;
@@ -110,8 +110,9 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         instanceBinding(inflater, R.layout.fragment_add_one, container);
-        registerEventListener(AddOneFragment.class, this);
+        registerEventListener();
         return mBinding.getRoot();
     }
 
@@ -139,29 +140,30 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unregisterEventListener(AddOneFragment.class, this);
+        unregisterEventListener();
     }
 
     @Override
-    public void dismiss(Class clz, Fragment fragment, Bundle bundle) {
-        if (fragment == mAccountFragment) {
+    public void handleDismiss(String src, Bundle extras) {
+        super.handleDismiss(src, extras);
+        if (mAccountFragment != null && src.equals(mAccountFragment.getName())) {
             mChooseAccountView.setSelected(false);
-            if (bundle != null) {
+            if (extras != null) {
 
             }
-        } else if (fragment == mMemberFragment) {
+        } else if (mMemberFragment != null && src.equals(mMemberFragment.getName())) {
             mChooseMemberView.setSelected(false);
-            if (bundle != null) {
-                List<String> members = bundle.getStringArrayList(MemberFragment.KEY_MEMBERS);
+            if (extras != null) {
+                List<String> members = extras.getStringArrayList(MemberFragment.KEY_MEMBERS);
             }
-        } else if (fragment == mAddDescFragment) {
+        } else if (mAddDescFragment != null && src.equals(mAddDescFragment.getName())) {
             mEditDescView.setSelected(false);
-            if (bundle != null) {
-                String desc = bundle.getString(AddDescFragment.KEY_DESC);
+            if (extras != null) {
+                String desc = extras.getString(AddDescFragment.KEY_DESC);
             }
-        } else if (fragment == mDatePickFragment) {
+        } else if (mDatePickFragment != null && src.equals(mDatePickFragment.getName())) {
             mChooseDateView.setSelected(false);
-            if (bundle != null) {
+            if (extras != null) {
 
             }
         }

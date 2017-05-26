@@ -62,7 +62,7 @@ public class AddDescFragment extends BaseFragment<FragmentEditDescriptionBinding
 
         private void handleDismiss(Bundle bundle) {
             getFragmentManager().beginTransaction().hide(AddDescFragment.this).commit();
-            dismiss(AddOneFragment.class, AddDescFragment.this, bundle);
+            dismiss(AddOneFragment.class.getName(), bundle);
         }
     }
 }

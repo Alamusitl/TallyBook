@@ -1,7 +1,6 @@
 package com.owl.book.base;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 
 /**
  * FragmentEventListener for transition data with Fragment
@@ -10,5 +9,7 @@ import android.support.v4.app.Fragment;
 
 public interface FragmentEventListener {
 
-    void dismiss(Class clz, Fragment fragment, Bundle bundle);
+    void dismiss(String target, Bundle extras);
+
+    void handleDismiss(String src, Bundle extras);
 }

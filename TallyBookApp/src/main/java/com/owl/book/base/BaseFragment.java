@@ -23,27 +23,27 @@ import java.util.Map;
 public class BaseFragment<T extends ViewDataBinding> extends Fragment implements FragmentEventListener {
 
     private static final String TAG = "BaseFragment";
-    private static Map<Class, List<FragmentEventListener>> mEventListenerMap = new HashMap<>();
+    private static Map<String, List<FragmentEventListener>> mEventListenerMap = new HashMap<>();
 
     protected T mBinding;
 
-    protected void registerEventListener(Class fragment, FragmentEventListener listener) {
-        if (mEventListenerMap.containsKey(fragment)) {
-            mEventListenerMap.get(fragment).add(listener);
+    protected void registerEventListener() {
+        if (mEventListenerMap.containsKey(getClass().getName())) {
+            mEventListenerMap.get(getClass().getName()).add(this);
         } else {
             List<FragmentEventListener> list = new ArrayList<>();
-            list.add(listener);
-            mEventListenerMap.put(fragment, list);
+            list.add(this);
+            mEventListenerMap.put(getClass().getName(), list);
         }
     }
 
-    protected void unregisterEventListener(Class fragment, FragmentEventListener listener) {
-        if (mEventListenerMap.containsKey(fragment)) {
-            List<FragmentEventListener> list = mEventListenerMap.get(fragment);
-            if (list == null || list.isEmpty() || !list.contains(listener)) {
+    protected void unregisterEventListener() {
+        if (mEventListenerMap.containsKey(getClass().getName())) {
+            List<FragmentEventListener> list = mEventListenerMap.get(getClass().getName());
+            if (list == null || list.isEmpty() || !list.contains(this)) {
                 return;
             }
-            mEventListenerMap.get(fragment).remove(listener);
+            mEventListenerMap.get(getClass().getName()).remove(this);
         }
     }
 
@@ -68,16 +68,25 @@ public class BaseFragment<T extends ViewDataBinding> extends Fragment implements
         getActivity().finish();
     }
 
+    public String getName() {
+        return this.getClass().getName();
+    }
+
     @Override
-    public void dismiss(Class clz, Fragment fragment, Bundle bundle) {
-        LogUtil.i(TAG, "base fragment dismiss called.");
-        List<FragmentEventListener> list = mEventListenerMap.get(clz);
+    public void dismiss(String target, Bundle extras) {
+        LogUtil.i(getClass().getSimpleName(), "dismiss callback!");
+        List<FragmentEventListener> list = mEventListenerMap.get(target);
         if (list == null || list.isEmpty()) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
             FragmentEventListener listener = list.get(i);
-            listener.dismiss(clz, fragment, bundle);
+            listener.handleDismiss(getName(), extras);
         }
+    }
+
+    @Override
+    public void handleDismiss(String src, Bundle extras) {
+        LogUtil.i(getClass().getSimpleName(), "handled dismiss callback from " + src + "!");
     }
 }

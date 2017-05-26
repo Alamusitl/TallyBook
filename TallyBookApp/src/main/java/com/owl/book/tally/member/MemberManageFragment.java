@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -71,24 +73,54 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
     @Override
     public void onItemClick(View view, final int position) {
         if (mIsSettings) {
+            Member member = mAdapter.getDataList().get(position);
+            boolean isDefault = member.getIsMemberDefault();
             for (int i = 0; i < mAdapter.getItemCount(); i++) {
                 mAdapter.getDataList().get(i).setIsMemberDefault(false);
             }
-            int childCount = ((ViewGroup) view.getParent()).getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                ViewGroup itemView = (ViewGroup) ((ViewGroup) view.getParent()).getChildAt(i);
-                itemView.getChildAt(2).setVisibility(View.INVISIBLE);
-            }
-            mAdapter.getDataList().get(position).setIsMemberDefault(true);
-            ((ViewGroup) view).getChildAt(2).setVisibility(View.VISIBLE);
+            member.setIsMemberDefault(!isDefault);
+            hideItemSelectImg();
+            ((ViewGroup) view).getChildAt(2).setVisibility(member.getIsMemberDefault() ? View.VISIBLE : View.INVISIBLE);
         } else {
-
+            final EditText etMember = ((EditText) ((ViewGroup) view).getChildAt(0));
+            etMember.setFocusable(true);
+            etMember.setFocusableInTouchMode(true);
+            etMember.requestFocus();
+            etMember.setSelection(etMember.getText().length());
+            etMember.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        mAdapter.getDataList().get(position).setMemberName(etMember.getText().toString());
+                        etMember.setFocusable(false);
+                        etMember.setFocusableInTouchMode(false);
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            etMember.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (!hasFocus) {
+                        mAdapter.getDataList().get(position).setMemberName(etMember.getText().toString());
+                    }
+                }
+            });
         }
     }
 
     @Override
     public void onItemLongClick(View view, int position) {
         //ignore
+    }
+
+    private void hideItemSelectImg() {
+        int childCount = mRecyclerView.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            ViewGroup itemView = (ViewGroup) mRecyclerView.getChildAt(i);
+            itemView.getChildAt(2).setVisibility(View.INVISIBLE);
+        }
     }
 
     public class Presenter {
@@ -100,7 +132,12 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
                 mNextView.setVisibility(View.VISIBLE);
                 mPreviousView.setText(getString(R.string.manage_member_member));
                 mTitleView.setText(getString(R.string.manage_member_manager));
+                hideItemSelectImg();
             } else {
+                for (int i = 0; i < mAdapter.getItemCount(); i++) {
+                    MemberManager.getInstance().updateMember(mAdapter.getDataList().get(i));
+                }
+                dismiss(MemberFragment.class.getName(), null);
                 getFragmentManager().beginTransaction().hide(MemberManageFragment.this).commit();
             }
         }

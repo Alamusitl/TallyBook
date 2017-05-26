@@ -70,7 +70,7 @@ public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> 
     public class Presenter {
         public void onBackgroundClick(View view) {
             getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
-            dismiss(AddOneFragment.class, AccountFragment.this, null);
+            dismiss(AddOneFragment.class.getName(), null);
         }
     }
 }
