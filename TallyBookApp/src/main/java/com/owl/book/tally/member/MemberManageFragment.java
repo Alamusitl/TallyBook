@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -133,6 +134,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
                 mPreviousView.setText(getString(R.string.manage_member_member));
                 mTitleView.setText(getString(R.string.manage_member_manager));
                 hideItemSelectImg();
+                mBinding.getRoot().startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_right));
             } else {
                 for (int i = 0; i < mAdapter.getItemCount(); i++) {
                     MemberManager.getInstance().updateMember(mAdapter.getDataList().get(i));
@@ -148,6 +150,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
             mNextView.setVisibility(View.GONE);
             mPreviousView.setText(getString(R.string.manage_member_manager));
             mTitleView.setText(getString(R.string.manage_member_choose_default));
+            mBinding.getRoot().startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right));
         }
 
         public void onAddMemberClick() {

@@ -87,9 +87,11 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
             String tag = MemberManageFragment.class.getName();
             if (getFragmentManager().findFragmentByTag(tag) == null) {
                 mMemberManageFragment = new MemberManageFragment();
-                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mMemberManageFragment, tag).commit();
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, mMemberManageFragment, tag)
+                        .setCustomAnimations(R.anim.fragment_show, R.anim.fragment_hide).commit();
             } else {
-                getFragmentManager().beginTransaction().show(mMemberManageFragment).commit();
+                getFragmentManager().beginTransaction().show(mMemberManageFragment)
+                        .setCustomAnimations(R.anim.fragment_show, R.anim.fragment_hide).commit();
             }
         }
 

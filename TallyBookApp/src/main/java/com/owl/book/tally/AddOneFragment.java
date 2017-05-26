@@ -264,9 +264,11 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
         private void handleClick(Class clz, Fragment fragment) {
             if (getFragmentManager().findFragmentByTag(clz.getName()) == null) {
-                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, fragment, clz.getName()).commit();
+                getFragmentManager().beginTransaction().add(R.id.id_fragmentContainer, fragment, clz.getName())
+                        .setCustomAnimations(R.anim.fragment_show, R.anim.fragment_hide).commit();
             } else {
-                getFragmentManager().beginTransaction().show(fragment).commit();
+                getFragmentManager().beginTransaction().show(fragment)
+                        .setCustomAnimations(R.anim.fragment_show, R.anim.fragment_hide).commit();
             }
         }
     }
