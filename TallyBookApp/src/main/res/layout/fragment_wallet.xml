@@ -1,15 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
+    <data>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/color_F7F7F7"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Wallet"
-            android:textStyle="bold"/>
-    </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_64"
+            android:background="@color/color_white"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dimen_14">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/wallet_title"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_50"
+                android:layout_gravity="center_vertical|end"
+                android:gravity="center"
+                android:paddingEnd="@dimen/dimen_16"
+                android:paddingLeft="@dimen/dimen_0"
+                android:paddingRight="@dimen/dimen_16"
+                android:paddingStart="@dimen/dimen_0"
+                android:text="@string/wallet_transfer"
+                android:textColor="#2FB2EB"
+                android:textSize="16sp"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/AppWalletAccountItem"
+            android:background="@drawable/shape_bg_wallet_balance">
+
+            <TextView
+                android:id="@+id/id_wallet_tv_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginStart="@dimen/dimen_15"
+                android:gravity="center"
+                android:text="@string/wallet_balance"
+                android:textSize="22sp"/>
+
+            <ImageView
+                android:layout_width="@dimen/dimen_11"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/dimen_11"
+                android:layout_marginStart="@dimen/dimen_11"
+                android:layout_toEndOf="@+id/id_wallet_tv_balance"
+                android:layout_toRightOf="@+id/id_wallet_tv_balance"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/wallet_balance_select"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:gravity="center"
+                android:text="@string/money_zero"
+                android:textColor="#2FB2EB"
+                android:textSize="22sp"/>
+        </RelativeLayout>
+
+        <com.owl.book.widget.AccountView
+            style="@style/AppWalletAccountItem"
+            app:accountBalance="@string/money_zero"
+            app:accountBg="@color/color_57BFEB"
+            app:accountDesc="现金余额"
+            app:accountIcon="@drawable/icon_wallet_account_cash"
+            app:accountLabelBg="@color/color_6286EE"
+            app:accountName="现金"/>
+
+        <com.owl.book.widget.AccountView
+            style="@style/AppWalletAccountItem"
+            app:accountBalance="@string/money_zero"
+            app:accountBg="@color/color_72AFE2"
+            app:accountDesc="储蓄卡余额"
+            app:accountIcon="@drawable/icon_wallet_account_deposit_card"
+            app:accountLabelBg="@color/color_7C76E5"
+            app:accountName="储蓄卡"/>
+
+        <LinearLayout
+            style="@style/AppWalletAccountItem"
+            android:background="@drawable/shape_bg_wallet_account_add"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_20"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_14"
+                android:layout_marginStart="@dimen/dimen_14"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_wallet_account_add"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_11"
+                android:layout_marginStart="@dimen/dimen_11"
+                android:gravity="center"
+                android:text="@string/add_account"
+                android:textColor="@color/color_B6B3B3"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
 </layout>

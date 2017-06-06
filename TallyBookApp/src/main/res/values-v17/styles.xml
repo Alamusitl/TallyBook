@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppWalletAccountItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_55</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_7</item>
+        <item name="android:layout_marginTop">@dimen/dimen_10</item>
+        <item name="android:layout_marginStart">@dimen/dimen_7</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_7</item>
+        <item name="android:layout_marginRight">@dimen/dimen_7</item>
+    </style>
+</resources>

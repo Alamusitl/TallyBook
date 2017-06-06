@@ -14,5 +14,13 @@
     <color name="color_default_item_text">#FFDEDDDD</color>
     <color name="color_half_transparent">#44000000</color>
 
-    <color name="c_member_text_color">#FF37B5E9</color>
+    <color name="c_member_text_color">#37B5E9</color>
+    <color name="color_FDFDFD">#FDFDFD</color>
+    <color name="color_57BFEB">#57BFEB</color>
+    <color name="color_6286EE">#6286EE</color>
+    <color name="color_BCE5F7">#BCE5F7</color>
+    <color name="color_72AFE2">#72AFE2</color>
+    <color name="color_7C76E5">#7C76E5</color>
+    <color name="color_B6B3B3">#B6B3B3</color>
+    <color name="color_F7F7F7">#F7F7F7</color>
 </resources>

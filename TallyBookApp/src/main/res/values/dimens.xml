@@ -11,11 +11,15 @@
     <dimen name="dimen_8">8dp</dimen>
     <dimen name="dimen_9">9dp</dimen>
     <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_14">14dp</dimen>
     <dimen name="dimen_15">15dp</dimen>
     <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_18">18dp</dimen>
     <dimen name="dimen_20">20dp</dimen>
     <dimen name="dimen_24">24dp</dimen>
     <dimen name="dimen_50">50dp</dimen>
+    <dimen name="dimen_55">55dp</dimen>
     <dimen name="dimen_70">70dp</dimen>
-    <dimen name="dimen_18">18dp</dimen>
+    <dimen name="dimen_11">11dp</dimen>
+    <dimen name="dimen_64">64dp</dimen>
 </resources>

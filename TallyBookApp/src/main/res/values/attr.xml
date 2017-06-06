@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AccountView">
+        <attr name="accountIcon" format="reference"/>
+        <attr name="accountName" format="string|reference"/>
+        <attr name="accountDesc" format="string|reference"/>
+        <attr name="accountBalance" format="string|reference"/>
+        <attr name="accountBg" format="color|reference"/>
+        <attr name="accountLabelBg" format="color|reference"/>
+    </declare-styleable>
+</resources>

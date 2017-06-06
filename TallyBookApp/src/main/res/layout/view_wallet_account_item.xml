@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_55"
+        android:background="@color/color_57BFEB">
+
+        <View
+            android:id="@+id/id_wallet_account_item_label"
+            android:layout_width="@dimen/dimen_8"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/shape_bg_wallet_item_label"/>
+
+        <ImageView
+            android:id="@+id/id_wallet_account_item_icon"
+            android:layout_width="@dimen/dimen_20"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_7"
+            android:layout_marginStart="@dimen/dimen_7"
+            android:layout_toEndOf="@+id/id_wallet_account_item_label"
+            android:layout_toRightOf="@+id/id_wallet_account_item_label"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_wallet_account_cash"/>
+
+        <TextView
+            android:id="@+id/id_wallet_account_item_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/dimen_15"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:gravity="center"
+            android:text="@string/money_zero"
+            android:textColor="@color/color_FDFDFD"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/id_wallet_account_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_11"
+            android:layout_marginStart="@dimen/dimen_11"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_toEndOf="@+id/id_wallet_account_item_icon"
+            android:layout_toLeftOf="@+id/id_wallet_account_item_balance"
+            android:layout_toRightOf="@+id/id_wallet_account_item_icon"
+            android:layout_toStartOf="@+id/id_wallet_account_item_balance"
+            android:gravity="center_vertical|start"
+            android:text="现金"
+            android:textColor="@color/color_white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/id_wallet_account_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/id_wallet_account_item_name"
+            android:layout_alignStart="@+id/id_wallet_account_item_name"
+            android:layout_below="@+id/id_wallet_account_item_name"
+            android:layout_marginBottom="@dimen/dimen_8"
+            android:gravity="center"
+            android:text="现金余额"
+            android:textColor="@color/color_BCE5F7"/>
+
+    </RelativeLayout>
+</layout>

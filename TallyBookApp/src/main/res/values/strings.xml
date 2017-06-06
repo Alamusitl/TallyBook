@@ -30,4 +30,11 @@
     <string name="manage_member_done">完成</string>
     <string name="manage_member_default">(默认)</string>
     <string name="manage_member_choose_default">选择默认成员</string>
+
+    <string name="wallet_title">我的钱包</string>
+    <string name="wallet_transfer">转账</string>
+    <string name="wallet_balance">余额</string>
+
+    <string name="money_zero">0.00</string>
+    <string name="add_account">添加账户</string>
 </resources>
