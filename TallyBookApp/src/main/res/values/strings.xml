@@ -37,4 +37,8 @@
 
     <string name="money_zero">0.00</string>
     <string name="add_account">添加账户</string>
+    <string name="books_default">默认账本</string>
+    <string name="books_add_new">添加账本</string>
+    <string name="detail_text_hint_1">Hi,Master</string>
+    <string name="detail_text_hint_2">创建你的第一笔账吧</string>
 </resources>

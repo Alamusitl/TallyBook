@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.owl.book.tally.account.Account"/>
+            type="com.owl.book.account.Account"/>
     </data>
 
     <RelativeLayout
@@ -23,7 +23,7 @@
             android:layout_alignParentStart="true"
             android:contentDescription="@null"
             android:padding="@dimen/dimen_10"
-            android:src="@{item.accountIcon}"/>
+            android:src="@{item.accountIconGrey}"/>
 
         <View
             android:id="@+id/id_item_choose_account_divider"

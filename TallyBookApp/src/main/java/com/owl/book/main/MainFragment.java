@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.databinding.FragmentMainBinding;
-import com.owl.book.main.fragment.DetailFragment;
-import com.owl.book.main.fragment.FormFragment;
-import com.owl.book.main.fragment.MoreFragment;
-import com.owl.book.main.fragment.WalletFragment;
+import com.owl.book.main.Form.FormFragment;
+import com.owl.book.main.detail.DetailFragment;
 import com.owl.book.main.model.BottomNav;
+import com.owl.book.main.more.MoreFragment;
+import com.owl.book.main.wallet.WalletFragment;
 import com.owl.book.tally.AddOneActivity;
 
 import java.util.ArrayList;

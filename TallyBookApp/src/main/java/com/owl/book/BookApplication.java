@@ -2,8 +2,8 @@ package com.owl.book;
 
 import android.app.Application;
 
+import com.owl.book.account.DaoMaster;
 import com.owl.book.dao.DaoManager;
-import com.owl.book.tally.account.DaoMaster;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -21,5 +21,7 @@ public class BookApplication extends Application {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, DaoManager.DB_NAME);
         Database db = helper.getWritableDb();
         DaoManager.getInstance().setDaoSession(new DaoMaster(db).newSession());
+
+        System.out.println("getResources().getDisplayMetrics().density = " + getResources().getDisplayMetrics().density);
     }
 }

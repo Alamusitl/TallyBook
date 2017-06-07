@@ -3,6 +3,7 @@ package com.owl.book.tally.account;
 import android.content.Context;
 import android.view.ViewGroup;
 
+import com.owl.book.account.Account;
 import com.owl.book.databinding.ViewItemChooseAccountBinding;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 

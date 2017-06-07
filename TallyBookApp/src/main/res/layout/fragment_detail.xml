@@ -7,8 +7,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="@dimen/dimen_14">
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_detail_books_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/id_detail_iv_search"
@@ -16,14 +21,44 @@
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/id_detail_books_recyclerView"
+            android:layout_marginTop="@dimen/dimen_14"
             android:contentDescription="@null"
             android:padding="14dp"/>
 
-        <TextView
+        <RelativeLayout
             android:layout_width="115dp"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_height="@dimen/dimen_50"
+            android:layout_alignTop="@+id/id_detail_iv_search"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/id_detail_book_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_bg_detail_books"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dimen_6"
+                android:paddingEnd="@dimen/dimen_30"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingRight="@dimen/dimen_30"
+                android:paddingStart="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_6"
+                android:text="@string/books_default"/>
+
+            <ImageView
+                android:id="@+id/id_detail_book_title_img"
+                android:layout_width="@dimen/dimen_30"
+                android:layout_height="@dimen/dimen_30"
+                android:layout_alignEnd="@+id/id_detail_book_title_text"
+                android:layout_alignRight="@+id/id_detail_book_title_text"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|end"
+                android:contentDescription="@null"
+                android:padding="@dimen/dimen_9"
+                android:src="@drawable/detail_books_arrow"/>
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/id_detail_iv_date"
@@ -31,6 +66,7 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/id_detail_iv_search"
             android:background="@null"
             android:contentDescription="@null"
             android:padding="@dimen/dimen_15"
@@ -42,10 +78,11 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/id_detail_iv_search"
             android:background="@null"
             android:gravity="center"
             android:paddingTop="@dimen/dimen_6"
-            android:text="24"/>
+            android:text=""/>
 
         <TextView
             android:id="@+id/id_detail_tv_hi"
@@ -54,7 +91,7 @@
             android:layout_below="@id/id_detail_iv_search"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="36dp"
-            android:text="Hi,Master"
+            android:text="@string/detail_text_hint_1"
             android:textStyle="bold"/>
 
         <TextView
@@ -64,7 +101,7 @@
             android:layout_below="@+id/id_detail_tv_hi"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
-            android:text="创建你的第一笔账吧"/>
+            android:text="@string/detail_text_hint_2"/>
 
         <ImageView
             android:layout_width="220dp"

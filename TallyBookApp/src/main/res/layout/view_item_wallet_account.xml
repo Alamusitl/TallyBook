@@ -28,7 +28,7 @@
             android:layout_toRightOf="@+id/id_wallet_account_item_label"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
-            android:src="@drawable/icon_wallet_account_cash"/>
+            android:src="@drawable/icon_cash_white"/>
 
         <TextView
             android:id="@+id/id_wallet_account_item_balance"

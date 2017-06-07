@@ -4,7 +4,7 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.owl.book.BR;
-import com.owl.book.tally.account.Account;
+import com.owl.book.account.Account;
 import com.owl.book.util.DateTimeUtil;
 
 import java.util.Date;

@@ -1,8 +1,8 @@
 package com.owl.book.dao;
 
 import com.owl.book.R;
-import com.owl.book.tally.account.Account;
-import com.owl.book.tally.account.AccountDao;
+import com.owl.book.account.Account;
+import com.owl.book.account.AccountDao;
 
 import org.greenrobot.greendao.query.Query;
 

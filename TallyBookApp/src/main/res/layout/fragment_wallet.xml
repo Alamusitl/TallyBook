@@ -87,7 +87,7 @@
             app:accountBalance="@string/money_zero"
             app:accountBg="@color/color_57BFEB"
             app:accountDesc="现金余额"
-            app:accountIcon="@drawable/icon_wallet_account_cash"
+            app:accountIcon="@drawable/icon_cash_white"
             app:accountLabelBg="@color/color_6286EE"
             app:accountName="现金"/>
 
@@ -96,7 +96,7 @@
             app:accountBalance="@string/money_zero"
             app:accountBg="@color/color_72AFE2"
             app:accountDesc="储蓄卡余额"
-            app:accountIcon="@drawable/icon_wallet_account_deposit_card"
+            app:accountIcon="@drawable/icon_deposit_card_white"
             app:accountLabelBg="@color/color_7C76E5"
             app:accountName="储蓄卡"/>
 
@@ -112,7 +112,7 @@
                 android:layout_marginStart="@dimen/dimen_14"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/icon_wallet_account_add"/>
+                android:src="@drawable/icon_add_grey"/>
 
             <TextView
                 android:layout_width="wrap_content"

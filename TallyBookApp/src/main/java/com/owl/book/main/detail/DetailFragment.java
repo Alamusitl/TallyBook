@@ -1,4 +1,4 @@
-package com.owl.book.main.fragment;
+package com.owl.book.main.detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,12 +13,17 @@ import com.owl.book.base.BaseFragment;
  * Created by Alamusi on 2017/4/21.
  */
 
-public class MoreFragment extends BaseFragment {
+public class DetailFragment extends BaseFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        instanceBinding(inflater, R.layout.fragment_more, container);
+        instanceBinding(inflater, R.layout.fragment_detail, container);
         return getBinding().getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 }

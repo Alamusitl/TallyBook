@@ -1,4 +1,4 @@
-package com.owl.book.tally.account;
+package com.owl.book.account;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -23,9 +23,16 @@ public class Account extends BaseObservable {
     @Index
     private long id;
     @NotNull
-    private int accountIcon;
+    private int accountIconWhite;
+    @NotNull
+    private int accountIconGrey;
+    @NotNull
+    private int accountBgColor;
+    @NotNull
+    private int accountLabelColor;
     @NotNull
     private String accountName;
+    @NotNull
     private String accountBalance;
     @Transient
     private boolean isAccountSelect;
@@ -39,15 +46,18 @@ public class Account extends BaseObservable {
     public Account(long id, int accountIcon, String accountName) {
         this();
         this.id = id;
-        this.accountIcon = accountIcon;
         this.accountName = accountName;
     }
 
-    @Generated(hash = 1951863264)
-    public Account(long id, int accountIcon, @NotNull String accountName,
-                   String accountBalance) {
+    @Generated(hash = 901559345)
+    public Account(long id, int accountIconWhite, int accountIconGrey,
+                   int accountBgColor, int accountLabelColor, @NotNull String accountName,
+                   @NotNull String accountBalance) {
         this.id = id;
-        this.accountIcon = accountIcon;
+        this.accountIconWhite = accountIconWhite;
+        this.accountIconGrey = accountIconGrey;
+        this.accountBgColor = accountBgColor;
+        this.accountLabelColor = accountLabelColor;
         this.accountName = accountName;
         this.accountBalance = accountBalance;
     }
@@ -58,16 +68,6 @@ public class Account extends BaseObservable {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    @Bindable
-    public int getAccountIcon() {
-        return this.accountIcon;
-    }
-
-    public void setAccountIcon(int accountIcon) {
-        this.accountIcon = accountIcon;
-        notifyPropertyChanged(BR.accountIcon);
     }
 
     @Bindable
@@ -95,8 +95,48 @@ public class Account extends BaseObservable {
         return this.isAccountSelect;
     }
 
-    public void setAccountSelect(boolean isSelect) {
-        this.isAccountSelect = isSelect;
+    public void setAccountSelect(boolean accountSelect) {
+        isAccountSelect = accountSelect;
         notifyPropertyChanged(BR.accountSelect);
+    }
+
+    @Bindable
+    public int getAccountIconWhite() {
+        return this.accountIconWhite;
+    }
+
+    public void setAccountIconWhite(int accountIconWhite) {
+        this.accountIconWhite = accountIconWhite;
+        notifyPropertyChanged(BR.accountIconWhite);
+    }
+
+    @Bindable
+    public int getAccountIconGrey() {
+        return this.accountIconGrey;
+    }
+
+    public void setAccountIconGrey(int accountIconGrey) {
+        this.accountIconGrey = accountIconGrey;
+        notifyPropertyChanged(BR.accountIconGrey);
+    }
+
+    @Bindable
+    public int getAccountBgColor() {
+        return this.accountBgColor;
+    }
+
+    public void setAccountBgColor(int accountBgColor) {
+        this.accountBgColor = accountBgColor;
+        notifyPropertyChanged(BR.accountBgColor);
+    }
+
+    @Bindable
+    public int getAccountLabelColor() {
+        return this.accountLabelColor;
+    }
+
+    public void setAccountLabelColor(int accountLabelColor) {
+        this.accountLabelColor = accountLabelColor;
+        notifyPropertyChanged(BR.accountLabelColor);
     }
 }

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.owl.book.R;
-import com.owl.book.databinding.ViewWalletAccountItemBinding;
+import com.owl.book.databinding.ViewItemWalletAccountBinding;
 
 
 /**
@@ -23,7 +23,7 @@ import com.owl.book.databinding.ViewWalletAccountItemBinding;
 
 public class AccountView extends FrameLayout {
 
-    private ViewWalletAccountItemBinding mBinding;
+    private ViewItemWalletAccountBinding mBinding;
 
     private TextView mAccountViewName;
     private TextView mAccountViewDesc;
@@ -48,7 +48,7 @@ public class AccountView extends FrameLayout {
         if (isInEditMode()) {
             return;
         }
-        mBinding = ViewWalletAccountItemBinding.inflate(LayoutInflater.from(context), this, true);
+        mBinding = ViewItemWalletAccountBinding.inflate(LayoutInflater.from(context), this, true);
         initData(context, attrs, defStyle);
         initChildrenViews();
     }
