@@ -2,7 +2,6 @@ package com.owl.book.recycler;
 
 import android.content.Context;
 import android.databinding.ViewDataBinding;
-import android.support.annotation.CallSuper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +20,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     private List<T> mDataList;
     private OnItemClickListener mItemClickListener;
 
+    public BaseRecyclerAdapter() {
+    }
+
     public BaseRecyclerAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
         mDataList = new ArrayList<>();
@@ -30,7 +32,6 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     public abstract BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
 
     @Override
-    @CallSuper
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.bind(mDataList.get(position));
         if (mItemClickListener != null) {
@@ -39,9 +40,13 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     }
 
     @Override
-    @CallSuper
     public int getItemCount() {
         return mDataList.size();
+    }
+
+    @Override
+    public void onViewAttachedToWindow(BaseViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
     }
 
     private void setUpItemEvent(final BaseViewHolder holder) {
@@ -58,6 +63,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
                 return false;
             }
         });
+    }
+
+    public LayoutInflater getLayoutInflater() {
+        return mInflater;
     }
 
     public List<T> getDataList() {

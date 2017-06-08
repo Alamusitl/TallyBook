@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="presenter"
+            type="com.owl.book.main.detail.DetailFragment.Presenter"/>
     </data>
 
     <RelativeLayout
@@ -12,8 +15,19 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/id_detail_books_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="158dp"
+            android:paddingEnd="@dimen/dimen_6"
+            android:paddingLeft="@dimen/dimen_6"
+            android:paddingRight="@dimen/dimen_6"
+            android:paddingStart="@dimen/dimen_6"
             android:visibility="gone"/>
+
+        <View
+            android:id="@+id/id_detail_v_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_below="@+id/id_detail_books_recyclerView"
+            android:background="@android:color/darker_gray"/>
 
         <ImageView
             android:id="@+id/id_detail_iv_search"
@@ -21,19 +35,21 @@
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/id_detail_books_recyclerView"
+            android:layout_below="@+id/id_detail_v_line"
             android:layout_marginTop="@dimen/dimen_14"
             android:contentDescription="@null"
             android:padding="14dp"/>
 
         <RelativeLayout
+            android:id="@+id/id_detail_cur_book"
             android:layout_width="115dp"
             android:layout_height="@dimen/dimen_50"
             android:layout_alignTop="@+id/id_detail_iv_search"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:onClick="@{presenter.onCurBooksClicked}">
 
             <TextView
-                android:id="@+id/id_detail_book_title_text"
+                android:id="@+id/id_detail_cur_book_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -48,11 +64,11 @@
                 android:text="@string/books_default"/>
 
             <ImageView
-                android:id="@+id/id_detail_book_title_img"
+                android:id="@+id/id_detail_cur_book_img"
                 android:layout_width="@dimen/dimen_30"
                 android:layout_height="@dimen/dimen_30"
-                android:layout_alignEnd="@+id/id_detail_book_title_text"
-                android:layout_alignRight="@+id/id_detail_book_title_text"
+                android:layout_alignEnd="@+id/id_detail_cur_book_text"
+                android:layout_alignRight="@+id/id_detail_cur_book_text"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|end"
                 android:contentDescription="@null"
@@ -74,11 +90,15 @@
             android:src="@drawable/detail_date"/>
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/id_detail_iv_search"
+            android:id="@+id/id_detail_tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/id_detail_iv_date"
+            android:layout_alignEnd="@+id/id_detail_iv_date"
+            android:layout_alignLeft="@+id/id_detail_iv_date"
+            android:layout_alignRight="@+id/id_detail_iv_date"
+            android:layout_alignStart="@+id/id_detail_iv_date"
+            android:layout_alignTop="@+id/id_detail_iv_date"
             android:background="@null"
             android:gravity="center"
             android:paddingTop="@dimen/dimen_6"
