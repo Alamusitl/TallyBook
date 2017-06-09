@@ -40,6 +40,12 @@ public class Book extends BaseObservable {
     public Book() {
     }
 
+    public Book(String bookName, int bookBg, boolean isBookSelect) {
+        this.bookName = bookName;
+        this.bookBg = bookBg;
+        this.isBookSelect = isBookSelect;
+    }
+
     public long getId() {
         return this.id;
     }

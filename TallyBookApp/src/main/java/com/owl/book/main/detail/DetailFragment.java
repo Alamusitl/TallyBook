@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
+import com.owl.book.dao.BookManager;
 import com.owl.book.databinding.FragmentDetailBinding;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 import com.owl.book.util.DateTimeUtil;
@@ -57,7 +58,7 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
         mBooksRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mBooksAdapter = new BooksAdapter(getContext());
         mBookList = new ArrayList<>();
-        initBookList();
+        mBookList = BookManager.getInstance().getList();
         mBooksAdapter.setDataList(mBookList);
         mBooksAdapter.setItemClickListener(this);
 
@@ -75,26 +76,6 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
 
     }
 
-    private void initBookList() {
-        Book book = new Book();
-        book.setBookName("默认账本");
-        book.setBookBg(R.drawable.books_default);
-        book.setIsBookSelect(true);
-        mBookList.add(book);
-
-        Book book1 = new Book();
-        book1.setBookName("旅游账本");
-        book1.setBookBg(R.drawable.books_others);
-        book1.setIsBookSelect(false);
-        mBookList.add(book1);
-
-        Book book2 = new Book();
-        book2.setBookName("生意账本");
-        book2.setBookBg(R.drawable.books_others);
-        book2.setIsBookSelect(false);
-        mBookList.add(book2);
-    }
-
     @Override
     public void onItemClick(View view, int position) {
         if (mAdapter.isHeaderViewPos(position)) {
@@ -106,6 +87,7 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
             book.setBookBg(R.drawable.books_others);
             book.setIsBookSelect(false);
             mBookList.add(book);
+            BookManager.getInstance().insert(book);
             mBooksAdapter.notifyItemInserted(mBooksAdapter.getItemCount());
             mAdapter.notifyDataSetChanged();
             return;

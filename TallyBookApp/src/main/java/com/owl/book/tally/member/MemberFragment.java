@@ -49,7 +49,7 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
         mAdapter = new MemberAdapter(getContext());
         mAdapter.setItemClickListener(this);
-        List<Member> list = MemberManager.getInstance().getMemberList();
+        List<Member> list = MemberManager.getInstance().getList();
         mAdapter.setDataList(list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);

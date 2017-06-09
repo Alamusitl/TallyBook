@@ -64,7 +64,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
 
         mAdapter = new MemberManageAdapter(getContext());
         mAdapter.setItemClickListener(this);
-        List<Member> list = MemberManager.getInstance().getMemberList();
+        List<Member> list = MemberManager.getInstance().getList();
         mAdapter.setDataList(list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
@@ -137,7 +137,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
                 mBinding.getRoot().startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_right));
             } else {
                 for (int i = 0; i < mAdapter.getItemCount(); i++) {
-                    MemberManager.getInstance().updateMember(mAdapter.getDataList().get(i));
+                    MemberManager.getInstance().update(mAdapter.getDataList().get(i));
                 }
                 dismiss(MemberFragment.class.getName(), null);
                 getFragmentManager().beginTransaction().hide(MemberManageFragment.this).commit();
@@ -163,7 +163,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
             Member member = new Member(lastId + 1, newMemberName);
             mAdapter.getDataList().add(mAdapter.getItemCount(), member);
             mAdapter.notifyItemInserted(mAdapter.getItemCount());
-            MemberManager.getInstance().insertMember(member);
+            MemberManager.getInstance().insert(member);
         }
     }
 }

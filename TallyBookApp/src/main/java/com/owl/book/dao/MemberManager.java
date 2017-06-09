@@ -11,14 +11,13 @@ import java.util.List;
  * Created by Imagine Owl on 2017/5/23.
  */
 
-public class MemberManager extends BaseDaoManager<MemberDao> {
+public class MemberManager extends BaseDaoManager<MemberDao, Member> {
 
     private static MemberManager sInstance = null;
-    private MemberDao mMemberDao;
 
     public MemberManager() {
-        mMemberDao = DaoManager.getInstance().getDaoSession().getMemberDao();
-        if (!hasDataInDao(mMemberDao)) {
+        mDao = DaoManager.getInstance().getDaoSession().getMemberDao();
+        if (!hasDataInDao(mDao)) {
             initTable();
         }
     }
@@ -34,27 +33,31 @@ public class MemberManager extends BaseDaoManager<MemberDao> {
         return sInstance;
     }
 
-    public List<Member> getMemberList() {
-        Query<Member> memberQuery = mMemberDao.queryBuilder().orderAsc(MemberDao.Properties.Id).build();
+    @Override
+    protected void initTable() {
+        mDao.insert(new Member(1, "我"));
+        mDao.insert(new Member(2, "爸爸"));
+        mDao.insert(new Member(3, "妈妈"));
+    }
+
+    @Override
+    public List<Member> getList() {
+        Query<Member> memberQuery = mDao.queryBuilder().orderAsc(MemberDao.Properties.Id).build();
         return memberQuery.list();
     }
 
     @Override
-    protected void initTable() {
-        mMemberDao.insert(new Member(1, "我"));
-        mMemberDao.insert(new Member(2, "爸爸"));
-        mMemberDao.insert(new Member(3, "妈妈"));
+    public void insert(Member data) {
+        mDao.insertOrReplace(data);
     }
 
-    public void insertMember(Member member) {
-        mMemberDao.insertOrReplace(member);
+    @Override
+    public void update(Member data) {
+        mDao.update(data);
     }
 
-    public void updateMember(Member member) {
-        mMemberDao.update(member);
-    }
-
-    public void deleteMember(Member member) {
-        mMemberDao.delete(member);
+    @Override
+    public void delete(Member data) {
+        mDao.delete(data);
     }
 }

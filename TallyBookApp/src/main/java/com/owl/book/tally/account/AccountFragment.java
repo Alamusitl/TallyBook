@@ -46,7 +46,7 @@ public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> 
 
         mAdapter = new AccountItemAdapter(getContext());
         mAdapter.setItemClickListener(this);
-        List<Account> dataList = AccountManager.getInstance().getAccountList();
+        List<Account> dataList = AccountManager.getInstance().getList();
         mAdapter.setDataList(dataList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
