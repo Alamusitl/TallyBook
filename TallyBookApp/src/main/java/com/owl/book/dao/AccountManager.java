@@ -46,7 +46,7 @@ public class AccountManager extends BaseDaoManager<AccountDao, Account> {
     @Override
     public List<Account> getList() {
         Query<Account> accountQuery = mDao.queryBuilder().orderAsc(AccountDao.Properties.Id).build();
-        return accountQuery.listLazy();
+        return accountQuery.list();
     }
 
     @Override

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
@@ -83,6 +84,7 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
         }
         if (mAdapter.isFooterViewPos(position)) {
             Book book = new Book();
+            book.setId(mBooksAdapter.getItemCount() + 1);
             book.setBookName("New");
             book.setBookBg(R.drawable.books_others);
             book.setIsBookSelect(false);
@@ -101,7 +103,18 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
 
     @Override
     public void onItemLongClick(View view, int position) {
-
+        if (mAdapter.isHeaderViewPos(position) || mAdapter.isFooterViewPos(position)) {
+            return;
+        }
+        if (mBooksAdapter.getDataList().get(position).getIsBookSelect()) {
+            Toast.makeText(getActivity(), "不能删除选中的账本", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(getActivity(), "已删除账本" + mBookList.get(position - mAdapter.getHeaderViewCount()).getBookName(), Toast.LENGTH_SHORT).show();
+        BookManager.getInstance().delete(mBookList.get(position));
+        mBookList.remove(position - mAdapter.getHeaderViewCount());
+        mBooksAdapter.notifyItemRemoved(position - mAdapter.getHeaderViewCount());
+        mAdapter.notifyDataSetChanged();
     }
 
     public class Presenter {

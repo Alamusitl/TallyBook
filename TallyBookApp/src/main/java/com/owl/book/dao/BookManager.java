@@ -34,14 +34,14 @@ public class BookManager extends BaseDaoManager<BookDao, Book> {
 
     @Override
     protected void initTable() {
-        mDao.insert(new Book("默认账本", R.drawable.books_default, true));
-        mDao.insert(new Book("旅游账本", R.drawable.books_others, false));
-        mDao.insert(new Book("生意账本", R.drawable.books_others, false));
+        mDao.insert(new Book(1, "默认账本", R.drawable.books_default, true));
+        mDao.insert(new Book(2, "旅游账本", R.drawable.books_others, false));
+        mDao.insert(new Book(3, "生意账本", R.drawable.books_others, false));
     }
 
     @Override
     public List<Book> getList() {
-        return mDao.queryBuilder().build().listLazy();
+        return mDao.queryBuilder().build().list();
     }
 
     @Override
