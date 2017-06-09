@@ -41,4 +41,8 @@
     <string name="books_add_new">添加账本</string>
     <string name="detail_text_hint_1">Hi,Master</string>
     <string name="detail_text_hint_2">创建你的第一笔账吧</string>
+    <string name="more_title">更多</string>
+    <string name="more_login_desc">登录后可免费备份数据</string>
+    <string name="more_no_login">未登录</string>
+    <string name="more_borrow_desc">我要借钱</string>
 </resources>
