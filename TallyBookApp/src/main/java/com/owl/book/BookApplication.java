@@ -21,7 +21,5 @@ public class BookApplication extends Application {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, DaoManager.DB_NAME);
         Database db = helper.getWritableDb();
         DaoManager.getInstance().setDaoSession(new DaoMaster(db).newSession());
-
-        System.out.println("getResources().getDisplayMetrics().density = " + getResources().getDisplayMetrics().density);
     }
 }
