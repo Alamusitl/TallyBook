@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.owl.book.R;
-import com.owl.book.account.Account;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentChooseAccountBinding;
+import com.owl.book.entity.Account;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 import com.owl.book.tally.AddOneFragment;
 

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="oneTally"
-            type="com.owl.book.tally.model.OneTally"/>
+            name="billItem"
+            type="com.owl.book.entity.BillItem"/>
 
         <variable
             name="presenter"
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
-                    android:text="@{oneTally.money}"
+                    android:text="@{billItem.money}"
                     android:textSize="30sp"/>
             </FrameLayout>
         </LinearLayout>
@@ -139,7 +139,7 @@
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
                     android:onClick="@{presenter.onChooseAccountTypeClick}"
-                    android:text="@{oneTally.account.accountName}"/>
+                    android:text="@{billItem.account.accountName}"/>
 
                 <TextView
                     android:id="@+id/id_add_date"
@@ -154,7 +154,7 @@
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
                     android:onClick="@{presenter.onChooseDateClick}"
-                    android:text="@{oneTally.showDate}"/>
+                    android:text="@{billItem.showDate}"/>
 
                 <ImageView
                     android:id="@+id/id_add_description"

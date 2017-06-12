@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.owl.book.account.Account"/>
+            type="com.owl.book.entity.Account"/>
     </data>
 
     <RelativeLayout

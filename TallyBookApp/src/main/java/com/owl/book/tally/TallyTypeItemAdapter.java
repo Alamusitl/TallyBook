@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.owl.book.databinding.ViewTallyTypeItemBinding;
+import com.owl.book.databinding.ViewItemBillTypeBinding;
+import com.owl.book.entity.BillTypeItem;
 import com.owl.book.recycler.BindingViewHolder;
-import com.owl.book.tally.model.TallyItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +20,9 @@ import java.util.List;
 public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdapter.TallyItemViewHolder> {
 
     private LayoutInflater mLayoutInflater;
-    private List<TallyItem> mEarnList;
-    private List<TallyItem> mPayList;
-    private List<TallyItem> mShowItemList;
+    private List<BillTypeItem> mEarnList;
+    private List<BillTypeItem> mPayList;
+    private List<BillTypeItem> mShowItemList;
     private boolean mIsEarn;
 
     private OnItemClickListener mOnItemClickListener;
@@ -36,12 +36,12 @@ public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdap
 
     @Override
     public TallyItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new TallyItemViewHolder(ViewTallyTypeItemBinding.inflate(mLayoutInflater, parent, false));
+        return new TallyItemViewHolder(ViewItemBillTypeBinding.inflate(mLayoutInflater, parent, false));
     }
 
     @Override
     public void onBindViewHolder(TallyItemViewHolder holder, int position) {
-        TallyItem item = mShowItemList.get(position);
+        BillTypeItem item = mShowItemList.get(position);
         holder.bind(item);
         if (mOnItemClickListener != null) {
             setUpItemEvent(holder);
@@ -69,19 +69,19 @@ public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdap
         });
     }
 
-    List<TallyItem> getEarnList() {
+    List<BillTypeItem> getEarnList() {
         return mEarnList;
     }
 
-    void setEarnList(List<TallyItem> earnList) {
+    void setEarnList(List<BillTypeItem> earnList) {
         mEarnList = earnList;
     }
 
-    List<TallyItem> getPayList() {
+    List<BillTypeItem> getPayList() {
         return mPayList;
     }
 
-    void setPayList(List<TallyItem> payList) {
+    void setPayList(List<BillTypeItem> payList) {
         mPayList = payList;
     }
 
@@ -112,14 +112,14 @@ public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdap
         void onItemLongClick(View view, int position);
     }
 
-    class TallyItemViewHolder extends BindingViewHolder<ViewTallyTypeItemBinding> {
+    class TallyItemViewHolder extends BindingViewHolder<ViewItemBillTypeBinding> {
 
-        TallyItemViewHolder(ViewTallyTypeItemBinding binding) {
+        TallyItemViewHolder(ViewItemBillTypeBinding binding) {
             super(binding);
         }
 
-        public void bind(TallyItem item) {
-            mBinding.setTallyItem(item);
+        public void bind(BillTypeItem item) {
+            mBinding.setBillTypeItem(item);
             mBinding.executePendingBindings();
         }
     }

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="tallyItem"
-            type="com.owl.book.tally.model.TallyItem"/>
+            name="billTypeItem"
+            type="com.owl.book.entity.BillTypeItem"/>
 
     </data>
 
@@ -22,14 +22,14 @@
             android:contentDescription="@null"
             android:paddingTop="@dimen/dimen_10"
             android:scaleType="fitXY"
-            android:src="@{tallyItem.itemDrawableId}"/>
+            android:src="@{billTypeItem.itemDrawableId}"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="6dp"
-            android:text="@{tallyItem.itemName}"
+            android:text="@{billTypeItem.itemName}"
             android:textSize="14sp"/>
 
     </LinearLayout>

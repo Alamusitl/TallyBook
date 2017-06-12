@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_30">
+
+        <ImageView
+            android:id="@+id/id_detail_item_icon"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/id_detail_item_money"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:layout_toLeftOf="@+id/id_detail_item_icon"
+            android:layout_toStartOf="@+id/id_detail_item_icon"
+            android:gravity="center_vertical|end"/>
+
+        <TextView
+            android:id="@+id/id_detail_item_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_toEndOf="@+id/id_detail_item_icon"
+            android:layout_toRightOf="@+id/id_detail_item_icon"
+            android:gravity="center_vertical|start"/>
+
+        <ImageView
+            android:id="@+id/id_detail_item_delete"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/id_detail_item_money"
+            android:layout_alignStart="@+id/id_detail_item_money"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen_1"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_bill_item_delete"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/id_detail_item_edit"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/id_detail_item_desc"
+            android:layout_alignRight="@+id/id_detail_item_desc"
+            android:contentDescription="@null"
+            android:padding="@dimen/dimen_1"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_bill_item_edit"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</layout>

@@ -1,10 +1,9 @@
-package com.owl.book.tally.model;
+package com.owl.book.entity;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.owl.book.BR;
-import com.owl.book.account.Account;
 import com.owl.book.util.DateTimeUtil;
 
 import java.util.Date;
@@ -14,7 +13,7 @@ import java.util.List;
  * Created by Alamusi on 2017/5/9.
  */
 
-public class OneTally extends BaseObservable {
+public class BillItem extends BaseObservable {
 
     private boolean mIsEarn;
     private boolean mPay;
@@ -27,7 +26,7 @@ public class OneTally extends BaseObservable {
 
     private String mShowDate;
 
-    public OneTally() {
+    public BillItem() {
         mDate = DateTimeUtil.getCurrDate();
         mShowDate = DateTimeUtil.getFormatDateNoYear(mDate);
         mAccount = new Account();

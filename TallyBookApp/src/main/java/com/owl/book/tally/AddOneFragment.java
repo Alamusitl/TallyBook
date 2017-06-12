@@ -16,12 +16,12 @@ import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentAddOneBinding;
+import com.owl.book.entity.BillItem;
+import com.owl.book.entity.BillTypeItem;
 import com.owl.book.tally.account.AccountFragment;
 import com.owl.book.tally.date.DatePickerFragment;
 import com.owl.book.tally.desc.AddDescFragment;
 import com.owl.book.tally.member.MemberFragment;
-import com.owl.book.tally.model.OneTally;
-import com.owl.book.tally.model.TallyItem;
 import com.owl.book.util.ResUtils;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     private RecyclerView mRecyclerView;
 
     private Presenter mPresenter;
-    private OneTally mOneTally;
+    private BillItem mBillItem;
 
     private TallyTypeItemAdapter mAdapter;
 
@@ -68,31 +68,31 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     }
 
     public void initData() {
-        List<TallyItem> earnList = new ArrayList<>();
+        List<BillTypeItem> earnList = new ArrayList<>();
         String[] earnListImg = getContext().getResources().getStringArray(R.array.earn_list_drawable);
         String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
         for (int i = 0; i < earnListName.length; i++) {
-            earnList.add(new TallyItem(earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
+            earnList.add(new BillTypeItem(earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
         }
         mAdapter.setEarnList(earnList);
 
-        List<TallyItem> payList = new ArrayList<>();
+        List<BillTypeItem> payList = new ArrayList<>();
         String[] payListImg = getContext().getResources().getStringArray(R.array.pay_list_drawable);
         String[] payListName = getContext().getResources().getStringArray(R.array.payment_list_name);
         for (int i = 0; i < payListName.length; i++) {
-            payList.add(new TallyItem(payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
+            payList.add(new BillTypeItem(payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
         }
         mAdapter.setPayList(payList);
         mAdapter.setEarn(false);
         mMoney = new StringBuilder("0.00");
-        mOneTally.setMoney(mMoney.toString());
+        mBillItem.setMoney(mMoney.toString());
 
         AccountManager.getInstance();
     }
 
     @Override
     public void onItemClick(View view, int position) {
-        TallyItem item;
+        BillTypeItem item;
         if (mAdapter.isEarn()) {
             item = mAdapter.getEarnList().get(position);
         } else {
@@ -123,8 +123,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         mPresenter = new Presenter();
         mBinding.setPresenter(mPresenter);
 
-        mOneTally = new OneTally();
-        mBinding.setOneTally(mOneTally);
+        mBillItem = new BillItem();
+        mBinding.setBillItem(mBillItem);
 
         initViews();
 
@@ -175,12 +175,12 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
             if (view == mTvEarn) {
                 mTvEarn.setSelected(true);
                 mTvPay.setSelected(false);
-                mOneTally.setEarn(true);
+                mBillItem.setEarn(true);
                 mAdapter.setEarn(true);
             } else if (view == mTvPay) {
                 mTvPay.setSelected(true);
                 mTvEarn.setSelected(false);
-                mOneTally.setPay(true);
+                mBillItem.setPay(true);
                 mAdapter.setEarn(false);
             }
         }

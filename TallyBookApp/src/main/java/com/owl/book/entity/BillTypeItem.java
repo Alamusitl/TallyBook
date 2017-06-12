@@ -1,4 +1,4 @@
-package com.owl.book.tally.model;
+package com.owl.book.entity;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -9,12 +9,12 @@ import com.owl.book.BR;
  * Created by Alamusi on 2017/5/10.
  */
 
-public class TallyItem extends BaseObservable {
+public class BillTypeItem extends BaseObservable {
 
     private String mItemName;
     private int mItemDrawableId;
 
-    public TallyItem(String typeName, int typeImageId) {
+    public BillTypeItem(String typeName, int typeImageId) {
         mItemName = typeName;
         mItemDrawableId = typeImageId;
     }
