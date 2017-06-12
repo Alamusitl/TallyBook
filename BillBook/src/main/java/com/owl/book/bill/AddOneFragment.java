@@ -1,4 +1,4 @@
-package com.owl.book.tally;
+package com.owl.book.bill;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,24 +14,25 @@ import android.widget.TextView;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
+import com.owl.book.bill.account.AccountFragment;
+import com.owl.book.bill.date.DatePickerFragment;
+import com.owl.book.bill.desc.AddDescFragment;
+import com.owl.book.bill.member.MemberFragment;
 import com.owl.book.dao.AccountManager;
-import com.owl.book.databinding.FragmentAddOneBinding;
 import com.owl.book.entity.BillItem;
 import com.owl.book.entity.BillTypeItem;
-import com.owl.book.tally.account.AccountFragment;
-import com.owl.book.tally.date.DatePickerFragment;
-import com.owl.book.tally.desc.AddDescFragment;
-import com.owl.book.tally.member.MemberFragment;
 import com.owl.book.util.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import null.databinding.FragmentAddOneBinding;
+
 /**
  * Created by Alamusi on 2017/5/9.
  */
 
-public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implements TallyTypeItemAdapter.OnItemClickListener {
+public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implements BillTypeItemAdapter.OnItemClickListener {
 
     private TextView mTvEarn;
     private TextView mTvPay;
@@ -49,7 +50,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     private Presenter mPresenter;
     private BillItem mBillItem;
 
-    private TallyTypeItemAdapter mAdapter;
+    private BillTypeItemAdapter mAdapter;
 
     private StringBuilder mMoney;
 
@@ -128,7 +129,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
         initViews();
 
-        mAdapter = new TallyTypeItemAdapter(getContext());
+        mAdapter = new BillTypeItemAdapter(getContext());
         mAdapter.setOnItemClickListener(this);
         initData();
 

@@ -1,4 +1,4 @@
-package com.owl.book.tally.member;
+package com.owl.book.bill.member;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,10 +18,11 @@ import android.widget.TextView;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.MemberManager;
-import com.owl.book.databinding.FragmentMemberManageBinding;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
 import java.util.List;
+
+import null.databinding.FragmentMemberManageBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/25.

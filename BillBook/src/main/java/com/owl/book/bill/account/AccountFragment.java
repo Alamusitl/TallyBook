@@ -1,4 +1,4 @@
-package com.owl.book.tally.account;
+package com.owl.book.bill.account;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
+import com.owl.book.bill.AddOneFragment;
 import com.owl.book.dao.AccountManager;
-import com.owl.book.databinding.FragmentChooseAccountBinding;
 import com.owl.book.entity.Account;
 import com.owl.book.recycler.BaseRecyclerAdapter;
-import com.owl.book.tally.AddOneFragment;
 
 import java.util.List;
+
+import null.databinding.FragmentChooseAccountBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/18.

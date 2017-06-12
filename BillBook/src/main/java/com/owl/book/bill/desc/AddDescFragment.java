@@ -1,4 +1,4 @@
-package com.owl.book.tally.desc;
+package com.owl.book.bill.desc;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,9 @@ import android.widget.EditText;
 
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
-import com.owl.book.databinding.FragmentEditDescriptionBinding;
-import com.owl.book.tally.AddOneFragment;
+import com.owl.book.bill.AddOneFragment;
+
+import null.databinding.FragmentEditDescriptionBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/23.

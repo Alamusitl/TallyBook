@@ -21,7 +21,7 @@
         </activity>
         <activity android:name="com.owl.book.guide.GuideActivity"/>
         <activity android:name="com.owl.book.main.MainActivity"/>
-        <activity android:name="com.owl.book.tally.AddOneActivity"/>
+        <activity android:name="com.owl.book.bill.AddOneActivity"/>
     </application>
 
 </manifest>

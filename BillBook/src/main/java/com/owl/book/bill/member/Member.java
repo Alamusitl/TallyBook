@@ -1,4 +1,4 @@
-package com.owl.book.tally.member;
+package com.owl.book.bill.member;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;

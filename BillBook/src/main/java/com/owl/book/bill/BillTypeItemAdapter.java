@@ -1,4 +1,4 @@
-package com.owl.book.tally;
+package com.owl.book.bill;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Alamusi on 2017/5/9.
  */
 
-public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdapter.TallyItemViewHolder> {
+public class BillTypeItemAdapter extends RecyclerView.Adapter<BillTypeItemAdapter.TallyItemViewHolder> {
 
     private LayoutInflater mLayoutInflater;
     private List<BillTypeItem> mEarnList;
@@ -27,7 +27,7 @@ public class TallyTypeItemAdapter extends RecyclerView.Adapter<TallyTypeItemAdap
 
     private OnItemClickListener mOnItemClickListener;
 
-    public TallyTypeItemAdapter(Context context) {
+    public BillTypeItemAdapter(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
         mEarnList = new ArrayList<>();
         mPayList = new ArrayList<>();
