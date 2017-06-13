@@ -44,6 +44,7 @@ public class AccountManager extends BaseDaoManager<AccountDao, Account> {
 
     @Override
     public List<Account> getList() {
+        DaoManager.getInstance().clear();
         Query<Account> accountQuery = mDao.queryBuilder().orderAsc(AccountDao.Properties.Id).build();
         return accountQuery.list();
     }

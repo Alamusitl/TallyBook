@@ -30,4 +30,8 @@ public class DaoManager {
     public void setDaoSession(DaoSession daoSession) {
         mDaoSession = daoSession;
     }
+
+    public void clear() {
+        getDaoSession().clear();
+    }
 }

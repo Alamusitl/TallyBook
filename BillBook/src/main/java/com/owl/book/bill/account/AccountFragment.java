@@ -25,6 +25,8 @@ import java.util.List;
  */
 public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> implements BaseRecyclerAdapter.OnItemClickListener {
 
+    public static final String KEY_SELECT_ACCOUNT = "selectAccount";
+
     private RecyclerView mRecyclerView;
     private AccountItemAdapter mAdapter;
     private Presenter mPresenter;
@@ -61,6 +63,9 @@ public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> 
         }
         list.get(position).setAccountSelect(true);
         getFragmentManager().beginTransaction().hide(AccountFragment.this).commit();
+        Bundle selectAccount = new Bundle();
+        selectAccount.putParcelable(KEY_SELECT_ACCOUNT, list.get(position));
+        dismiss(AddOneFragment.class.getName(), selectAccount);
     }
 
     @Override

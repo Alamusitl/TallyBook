@@ -156,6 +156,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         if (mAccountFragment != null && src.equals(mAccountFragment.getName())) {
             mChooseAccountView.setSelected(false);
             if (extras != null) {
+                mAccount.setAccount((Account) extras.getParcelable(AccountFragment.KEY_SELECT_ACCOUNT));
                 mBillItem.setAccount(mAccount);
             }
         } else if (mMemberFragment != null && src.equals(mMemberFragment.getName())) {

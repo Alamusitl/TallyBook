@@ -180,4 +180,14 @@ public class Account extends BaseObservable implements Parcelable {
         dest.writeString(accountName);
         dest.writeString(accountBalance);
     }
+
+    public void setAccount(Account account) {
+        setId(account.getId());
+        setAccountName(account.getAccountName());
+        setAccountBalance(account.getAccountBalance());
+        setAccountIconWhite(account.getAccountIconWhite());
+        setAccountIconGrey(account.getAccountIconGrey());
+        setAccountBgColor(account.getAccountBgColor());
+        setAccountLabelColor(account.getAccountLabelColor());
+    }
 }
