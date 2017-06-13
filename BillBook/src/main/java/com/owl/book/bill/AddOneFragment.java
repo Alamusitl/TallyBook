@@ -19,14 +19,13 @@ import com.owl.book.bill.date.DatePickerFragment;
 import com.owl.book.bill.desc.AddDescFragment;
 import com.owl.book.bill.member.MemberFragment;
 import com.owl.book.dao.AccountManager;
+import com.owl.book.databinding.FragmentAddOneBinding;
 import com.owl.book.entity.BillItem;
 import com.owl.book.entity.BillTypeItem;
 import com.owl.book.util.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import null.databinding.FragmentAddOneBinding;
 
 /**
  * Created by Alamusi on 2017/5/9.
@@ -86,7 +85,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         mAdapter.setPayList(payList);
         mAdapter.setEarn(false);
         mMoney = new StringBuilder("0.00");
-        mBillItem.setMoney(mMoney.toString());
+        mBillItem.setMoney(Float.parseFloat(mMoney.toString()));
 
         AccountManager.getInstance();
     }
@@ -176,12 +175,10 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
             if (view == mTvEarn) {
                 mTvEarn.setSelected(true);
                 mTvPay.setSelected(false);
-                mBillItem.setEarn(true);
                 mAdapter.setEarn(true);
             } else if (view == mTvPay) {
                 mTvPay.setSelected(true);
                 mTvEarn.setSelected(false);
-                mBillItem.setPay(true);
                 mAdapter.setEarn(false);
             }
         }

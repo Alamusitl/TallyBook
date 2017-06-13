@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 
 import com.owl.book.databinding.ViewItemBookBinding;
+import com.owl.book.entity.Book;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
 /**

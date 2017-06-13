@@ -3,102 +3,77 @@ package com.owl.book.entity;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.owl.book.BR;
 import com.owl.book.util.DateTimeUtil;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Index;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Transient;
+
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Alamusi on 2017/5/9.
  */
-
+@Entity
 public class BillItem extends BaseObservable {
 
-    private boolean mIsEarn;
-    private boolean mPay;
-    private int mTallyType;
-    private String mMoney;
-    private List<String> mMembers;
-    private String mDescription;
-    private Account mAccount;
-    private Date mDate;
-
+    @Id
+    @Index
+    private long id;
+    @Transient
+    private BillType billType;
+    @NotNull
+    private int billTypeInt;
+    @NotNull
+    private float money;
+    private String desc;
+    @NotNull
+    @Transient
+    private Account account;
+    @NotNull
+    private Date date;
+    @NotNull
+    @Transient
+    private BillTypeItem billTypeItem;
+    @Transient
     private String mShowDate;
 
     public BillItem() {
-        mDate = DateTimeUtil.getCurrDate();
-        mShowDate = DateTimeUtil.getFormatDateNoYear(mDate);
-        mAccount = new Account();
+        billType = BillType.COST;
+        date = DateTimeUtil.getCurrDate();
+        mShowDate = DateTimeUtil.getFormatDateNoYear(date);
+        account = new Account();
     }
 
-    public boolean isEarn() {
-        return mIsEarn;
-    }
-
-    public void setEarn(boolean earn) {
-        mIsEarn = earn;
-        mPay = !earn;
-    }
-
-    public boolean isPay() {
-        return mPay;
-    }
-
-    public void setPay(boolean pay) {
-        mPay = pay;
-        mIsEarn = !pay;
-    }
-
-    public int getTallyType() {
-        return mTallyType;
-    }
-
-    public void setTallyType(int tallyType) {
-        mTallyType = tallyType;
-    }
-
-    public String getMoney() {
-        return mMoney;
-    }
-
-    public void setMoney(String money) {
-        mMoney = money;
-    }
-
-    public List<String> getMembers() {
-        return mMembers;
-    }
-
-    public void setMembers(List<String> members) {
-        mMembers = members;
-    }
-
-    public String getDescription() {
-        return mDescription;
-    }
-
-    public void setDescription(String description) {
-        mDescription = description;
+    @Generated(hash = 2084822396)
+    public BillItem(long id, int billTypeInt, float money, String desc,
+                    @NotNull Date date) {
+        this.id = id;
+        this.billTypeInt = billTypeInt;
+        this.money = money;
+        this.desc = desc;
+        this.date = date;
     }
 
     @Bindable
     public Account getAccount() {
-        return mAccount;
+        return account;
     }
 
     public void setAccount(Account account) {
-        mAccount = account;
-        notifyPropertyChanged(BR.account);
+        this.account = account;
     }
 
     public Date getDate() {
-        return mDate;
+        return date;
     }
 
     public void setDate(Date date) {
-        mDate = date;
-        setShowDate(DateTimeUtil.getFormatDateNoYear(mDate));
+        this.date = date;
+        setShowDate(DateTimeUtil.getFormatDateNoYear(date));
     }
 
     @Bindable
@@ -108,6 +83,41 @@ public class BillItem extends BaseObservable {
 
     private void setShowDate(String showDate) {
         mShowDate = showDate;
-        notifyPropertyChanged(BR.showDate);
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getBillTypeInt() {
+        return this.billTypeInt;
+    }
+
+    public void setBillTypeInt(int billTypeInt) {
+        this.billTypeInt = billTypeInt;
+    }
+
+    public float getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(float money) {
+        this.money = money;
+    }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public enum BillType {
+        EARN, COST
     }
 }

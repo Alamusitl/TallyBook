@@ -3,9 +3,10 @@ package com.owl.book.bill.member;
 import android.content.Context;
 import android.view.ViewGroup;
 
+import com.owl.book.databinding.ViewItemChooseMemberBinding;
+import com.owl.book.entity.Member;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
-import null.databinding.ViewItemChooseMemberBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/23.

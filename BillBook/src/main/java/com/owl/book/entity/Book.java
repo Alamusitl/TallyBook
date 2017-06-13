@@ -1,4 +1,4 @@
-package com.owl.book.main.detail;
+package com.owl.book.entity;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;

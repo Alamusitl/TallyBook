@@ -16,6 +16,7 @@ import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.BookManager;
 import com.owl.book.databinding.FragmentDetailBinding;
+import com.owl.book.entity.Book;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 import com.owl.book.util.DateTimeUtil;
 

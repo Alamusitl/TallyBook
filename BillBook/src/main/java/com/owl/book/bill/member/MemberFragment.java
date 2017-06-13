@@ -13,12 +13,13 @@ import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.bill.AddOneFragment;
 import com.owl.book.dao.MemberManager;
+import com.owl.book.databinding.FragmentChooseMemberBinding;
+import com.owl.book.entity.Member;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import null.databinding.FragmentChooseMemberBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/23.

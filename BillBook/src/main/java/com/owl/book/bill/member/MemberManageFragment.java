@@ -18,11 +18,11 @@ import android.widget.TextView;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.MemberManager;
+import com.owl.book.entity.Member;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
 import java.util.List;
 
-import null.databinding.FragmentMemberManageBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/25.

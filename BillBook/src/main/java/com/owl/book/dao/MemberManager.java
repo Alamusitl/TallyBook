@@ -1,7 +1,7 @@
 package com.owl.book.dao;
 
-import com.owl.book.bill.member.Member;
 import com.owl.book.bill.member.MemberDao;
+import com.owl.book.entity.Member;
 
 import org.greenrobot.greendao.query.Query;
 

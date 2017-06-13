@@ -11,7 +11,6 @@ import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.bill.AddOneFragment;
 
-import null.databinding.FragmentEditDescriptionBinding;
 
 /**
  * Created by Imagine Owl on 2017/5/23.

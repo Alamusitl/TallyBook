@@ -1,7 +1,7 @@
 package com.owl.book.dao;
 
 import com.owl.book.R;
-import com.owl.book.main.detail.Book;
+import com.owl.book.entity.Book;
 import com.owl.book.main.detail.BookDao;
 
 import java.util.List;
