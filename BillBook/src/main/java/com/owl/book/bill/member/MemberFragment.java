@@ -99,13 +99,13 @@ public class MemberFragment extends BaseFragment<FragmentChooseMemberBinding> im
 
         public void onDoneClick(View view) {
             Bundle bundle = new Bundle();
-            ArrayList<String> members = new ArrayList<>();
+            ArrayList<Member> members = new ArrayList<>();
             for (int i = 0; i < mAdapter.getDataList().size(); i++) {
                 if (mAdapter.getDataList().get(i).isMemberSelect()) {
-                    members.add(mAdapter.getDataList().get(i).getMemberName());
+                    members.add(mAdapter.getDataList().get(i));
                 }
             }
-            bundle.putStringArrayList(KEY_MEMBERS, members);
+            bundle.putParcelableArrayList(KEY_MEMBERS, members);
             handleDismiss(bundle);
         }
 

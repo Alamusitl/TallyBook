@@ -162,12 +162,19 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         } else if (mMemberFragment != null && src.equals(mMemberFragment.getName())) {
             mChooseMemberView.setSelected(false);
             if (extras != null) {
-                List<String> members = extras.getStringArrayList(MemberFragment.KEY_MEMBERS);
+                List<Member> members = extras.getParcelableArrayList(MemberFragment.KEY_MEMBERS);
+                if (members == null) {
+                    return;
+                }
+                for (Member member : members) {
+                    mMembers.add(member);
+                }
             }
         } else if (mAddDescFragment != null && src.equals(mAddDescFragment.getName())) {
             mEditDescView.setSelected(false);
             if (extras != null) {
                 String desc = extras.getString(AddDescFragment.KEY_DESC);
+                mBillItem.setDesc(desc);
             }
         } else if (mDatePickFragment != null && src.equals(mDatePickFragment.getName())) {
             mChooseDateView.setSelected(false);
