@@ -18,10 +18,11 @@ import com.owl.book.bill.account.AccountFragment;
 import com.owl.book.bill.date.DatePickerFragment;
 import com.owl.book.bill.desc.AddDescFragment;
 import com.owl.book.bill.member.MemberFragment;
-import com.owl.book.dao.AccountManager;
 import com.owl.book.databinding.FragmentAddOneBinding;
+import com.owl.book.entity.Account;
 import com.owl.book.entity.BillItem;
 import com.owl.book.entity.BillTypeItem;
+import com.owl.book.entity.Member;
 import com.owl.book.util.ResUtils;
 
 import java.util.ArrayList;
@@ -33,6 +34,9 @@ import java.util.List;
 
 public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implements BillTypeItemAdapter.OnItemClickListener {
 
+    /**
+     * Fragment Views
+     */
     private TextView mTvEarn;
     private TextView mTvPay;
 
@@ -48,6 +52,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
 
     private Presenter mPresenter;
     private BillItem mBillItem;
+    private Account mAccount;
+    private List<Member> mMembers;
 
     private BillTypeItemAdapter mAdapter;
 
@@ -57,55 +63,6 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
     private MemberFragment mMemberFragment;
     private AddDescFragment mAddDescFragment;
     private DatePickerFragment mDatePickFragment;
-
-    private void initViews() {
-        mTvEarn = mBinding.idAddEarn;
-        mTvPay = mBinding.idAddPay;
-        mTvPay.setSelected(true);
-        mTvSelectItem = mBinding.idAddSelectItemName;
-        mIvSelectItem = mBinding.idAddSelectItemImg;
-        mRecyclerView = mBinding.idAddRecyclerView;
-    }
-
-    public void initData() {
-        List<BillTypeItem> earnList = new ArrayList<>();
-        String[] earnListImg = getContext().getResources().getStringArray(R.array.earn_list_drawable);
-        String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
-        for (int i = 0; i < earnListName.length; i++) {
-            earnList.add(new BillTypeItem(i, earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
-        }
-        mAdapter.setEarnList(earnList);
-
-        List<BillTypeItem> payList = new ArrayList<>();
-        String[] payListImg = getContext().getResources().getStringArray(R.array.pay_list_drawable);
-        String[] payListName = getContext().getResources().getStringArray(R.array.payment_list_name);
-        for (int i = 0; i < payListName.length; i++) {
-            payList.add(new BillTypeItem(i, payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
-        }
-        mAdapter.setPayList(payList);
-        mAdapter.setEarn(false);
-        mMoney = new StringBuilder("0.00");
-        mBillItem.setMoney(Float.parseFloat(mMoney.toString()));
-
-        AccountManager.getInstance();
-    }
-
-    @Override
-    public void onItemClick(View view, int position) {
-        BillTypeItem item;
-        if (mAdapter.isEarn()) {
-            item = mAdapter.getEarnList().get(position);
-        } else {
-            item = mAdapter.getPayList().get(position);
-        }
-        mTvSelectItem.setText(item.getBillTypeItemName());
-        mIvSelectItem.setImageResource(item.getBillTypeItemDrawableId() == 0 ? R.drawable.icon_other : item.getBillTypeItemDrawableId());
-    }
-
-    @Override
-    public void onItemLongClick(View view, int position) {
-        onItemClick(view, position);
-    }
 
     @Nullable
     @Override
@@ -126,6 +83,9 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         mBillItem = new BillItem();
         mBinding.setBillItem(mBillItem);
 
+        mAccount = new Account();
+        mBinding.setAccount(mAccount);
+
         initViews();
 
         mAdapter = new BillTypeItemAdapter(getContext());
@@ -143,13 +103,60 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         unregisterEventListener();
     }
 
+    private void initViews() {
+        mTvEarn = mBinding.idAddEarn;
+        mTvPay = mBinding.idAddPay;
+        mTvPay.setSelected(true);
+        mTvSelectItem = mBinding.idAddSelectItemName;
+        mIvSelectItem = mBinding.idAddSelectItemImg;
+        mRecyclerView = mBinding.idAddRecyclerView;
+    }
+
+    public void initData() {
+        List<BillTypeItem> earnList = new ArrayList<>();
+        String[] earnListImg = getContext().getResources().getStringArray(R.array.earn_list_drawable);
+        String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
+        for (int i = 0; i < earnListName.length; i++) {
+            earnList.add(new BillTypeItem(earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
+        }
+        mAdapter.setEarnList(earnList);
+
+        List<BillTypeItem> payList = new ArrayList<>();
+        String[] payListImg = getContext().getResources().getStringArray(R.array.pay_list_drawable);
+        String[] payListName = getContext().getResources().getStringArray(R.array.payment_list_name);
+        for (int i = 0; i < payListName.length; i++) {
+            payList.add(new BillTypeItem(payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
+        }
+        mAdapter.setPayList(payList);
+        mAdapter.setEarn(false);
+        mMoney = new StringBuilder("0.00");
+        mBillItem.setMoney(Float.parseFloat(mMoney.toString()));
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        BillTypeItem item;
+        if (mAdapter.isEarn()) {
+            item = mAdapter.getEarnList().get(position);
+        } else {
+            item = mAdapter.getPayList().get(position);
+        }
+        mTvSelectItem.setText(item.getBillTypeItemName());
+        mIvSelectItem.setImageResource(item.getBillTypeItemDrawableId() == 0 ? R.drawable.icon_other : item.getBillTypeItemDrawableId());
+    }
+
+    @Override
+    public void onItemLongClick(View view, int position) {
+        onItemClick(view, position);
+    }
+
     @Override
     public void handleDismiss(String src, Bundle extras) {
         super.handleDismiss(src, extras);
         if (mAccountFragment != null && src.equals(mAccountFragment.getName())) {
             mChooseAccountView.setSelected(false);
             if (extras != null) {
-
+                mBillItem.setAccount(mAccount);
             }
         } else if (mMemberFragment != null && src.equals(mMemberFragment.getName())) {
             mChooseMemberView.setSelected(false);

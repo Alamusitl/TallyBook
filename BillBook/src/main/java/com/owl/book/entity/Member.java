@@ -8,19 +8,18 @@ import com.owl.book.BR;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Transient;
 
 /**
+ * Entity of Member
  * Created by Imagine Owl on 2017/5/23.
  */
 @Entity
 public class Member extends BaseObservable {
 
-    @Id
-    @Index
-    private long memberId;
+    @Id(autoincrement = true)
+    private Long memberId;
     @NotNull
     private String memberName;
     @Transient
@@ -28,8 +27,8 @@ public class Member extends BaseObservable {
     @NotNull
     private boolean isMemberDefault;
 
-    @Generated(hash = 633618138)
-    public Member(long memberId, @NotNull String memberName,
+    @Generated(hash = 1992968528)
+    public Member(Long memberId, @NotNull String memberName,
                   boolean isMemberDefault) {
         this.memberId = memberId;
         this.memberName = memberName;
@@ -40,18 +39,17 @@ public class Member extends BaseObservable {
     public Member() {
     }
 
-    public Member(long id, String memberName) {
-        this.memberId = id;
+    public Member(String memberName) {
         this.memberName = memberName;
         this.isMemberSelect = false;
         this.isMemberDefault = false;
     }
 
-    public long getMemberId() {
+    public Long getMemberId() {
         return this.memberId;
     }
 
-    public void setMemberId(long memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 

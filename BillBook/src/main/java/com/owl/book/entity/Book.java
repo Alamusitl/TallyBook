@@ -8,7 +8,6 @@ import com.owl.book.BR;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 
 /**
@@ -17,9 +16,8 @@ import org.greenrobot.greendao.annotation.NotNull;
 @Entity
 public class Book extends BaseObservable {
 
-    @Id
-    @Index
-    private long id;
+    @Id(autoincrement = true)
+    private Long id;
     @NotNull
     private String bookName;
     @NotNull
@@ -27,8 +25,8 @@ public class Book extends BaseObservable {
     @NotNull
     private boolean isBookSelect;
 
-    @Generated(hash = 1993209947)
-    public Book(long id, @NotNull String bookName, int bookBg,
+    @Generated(hash = 1342505335)
+    public Book(Long id, @NotNull String bookName, int bookBg,
                 boolean isBookSelect) {
         this.id = id;
         this.bookName = bookName;
@@ -46,11 +44,11 @@ public class Book extends BaseObservable {
         this.isBookSelect = isBookSelect;
     }
 
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -65,16 +63,6 @@ public class Book extends BaseObservable {
     }
 
     @Bindable
-    public boolean getIsBookSelect() {
-        return this.isBookSelect;
-    }
-
-    public void setIsBookSelect(boolean isBookSelect) {
-        this.isBookSelect = isBookSelect;
-        notifyPropertyChanged(BR.isBookSelect);
-    }
-
-    @Bindable
     public int getBookBg() {
         return this.bookBg;
     }
@@ -82,5 +70,15 @@ public class Book extends BaseObservable {
     public void setBookBg(int bookBg) {
         this.bookBg = bookBg;
         notifyPropertyChanged(BR.bookBg);
+    }
+
+    @Bindable
+    public boolean getIsBookSelect() {
+        return this.isBookSelect;
+    }
+
+    public void setIsBookSelect(boolean isBookSelect) {
+        this.isBookSelect = isBookSelect;
+        notifyPropertyChanged(BR.isBookSelect);
     }
 }

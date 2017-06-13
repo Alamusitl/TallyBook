@@ -35,9 +35,9 @@ public class MemberManager extends BaseDaoManager<MemberDao, Member> {
 
     @Override
     protected void initTable() {
-        mDao.insert(new Member(1, "我"));
-        mDao.insert(new Member(2, "爸爸"));
-        mDao.insert(new Member(3, "妈妈"));
+        mDao.insert(new Member("我"));
+        mDao.insert(new Member("爸爸"));
+        mDao.insert(new Member("妈妈"));
     }
 
     @Override

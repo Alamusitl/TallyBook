@@ -85,7 +85,6 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> implemen
         }
         if (mAdapter.isFooterViewPos(position)) {
             Book book = new Book();
-            book.setId(mBooksAdapter.getItemCount() + 1);
             book.setBookName("New");
             book.setBookBg(R.drawable.books_others);
             book.setIsBookSelect(false);

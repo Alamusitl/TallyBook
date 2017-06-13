@@ -4,11 +4,11 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.owl.book.BR;
+import com.owl.book.R;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Transient;
 
@@ -19,9 +19,8 @@ import org.greenrobot.greendao.annotation.Transient;
 @Entity
 public class Account extends BaseObservable {
 
-    @Id
-    @Index
-    private long id;
+    @Id(autoincrement = true)
+    private Long id;
     @NotNull
     private int accountIconWhite;
     @NotNull
@@ -38,20 +37,25 @@ public class Account extends BaseObservable {
     private boolean isAccountSelect;
 
     public Account() {
+        accountIconWhite = R.drawable.icon_net_account_white;
+        accountIconGrey = R.drawable.icon_net_account_grey;
+        accountBgColor = R.color.color_57BFEB;
+        accountLabelColor = R.color.color_6286EE;
         accountName = "选择账户";
         accountBalance = "0.00";
         isAccountSelect = false;
     }
 
-    public Account(long id, int accountIcon, String accountName) {
+    public Account(int accountIconGrey, int accountIconWhite, String accountName) {
         this();
-        this.id = id;
+        this.accountIconGrey = accountIconGrey;
+        this.accountIconWhite = accountIconWhite;
         this.accountName = accountName;
     }
 
-    @Generated(hash = 901559345)
-    public Account(long id, int accountIconWhite, int accountIconGrey,
-                   int accountBgColor, int accountLabelColor, @NotNull String accountName,
+    @Generated(hash = 2088352750)
+    public Account(Long id, int accountIconWhite, int accountIconGrey, int accountBgColor,
+                   int accountLabelColor, @NotNull String accountName,
                    @NotNull String accountBalance) {
         this.id = id;
         this.accountIconWhite = accountIconWhite;
@@ -62,42 +66,12 @@ public class Account extends BaseObservable {
         this.accountBalance = accountBalance;
     }
 
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    @Bindable
-    public String getAccountName() {
-        return this.accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-        notifyPropertyChanged(BR.accountName);
-    }
-
-    @Bindable
-    public String getAccountBalance() {
-        return this.accountBalance;
-    }
-
-    public void setAccountBalance(String accountBalance) {
-        this.accountBalance = accountBalance;
-        notifyPropertyChanged(BR.accountBalance);
-    }
-
-    @Bindable
-    public boolean isAccountSelect() {
-        return this.isAccountSelect;
-    }
-
-    public void setAccountSelect(boolean accountSelect) {
-        isAccountSelect = accountSelect;
-        notifyPropertyChanged(BR.accountSelect);
     }
 
     @Bindable
@@ -138,5 +112,35 @@ public class Account extends BaseObservable {
     public void setAccountLabelColor(int accountLabelColor) {
         this.accountLabelColor = accountLabelColor;
         notifyPropertyChanged(BR.accountLabelColor);
+    }
+
+    @Bindable
+    public String getAccountName() {
+        return this.accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+        notifyPropertyChanged(BR.accountName);
+    }
+
+    @Bindable
+    public String getAccountBalance() {
+        return this.accountBalance;
+    }
+
+    public void setAccountBalance(String accountBalance) {
+        this.accountBalance = accountBalance;
+        notifyPropertyChanged(BR.accountBalance);
+    }
+
+    @Bindable
+    public boolean isAccountSelect() {
+        return this.isAccountSelect;
+    }
+
+    public void setAccountSelect(boolean accountSelect) {
+        isAccountSelect = accountSelect;
+        notifyPropertyChanged(BR.accountSelect);
     }
 }

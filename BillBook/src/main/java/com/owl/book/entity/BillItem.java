@@ -10,7 +10,6 @@ import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.JoinProperty;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.OrderBy;
@@ -28,9 +27,8 @@ import java.util.List;
 @Entity
 public class BillItem extends BaseObservable {
 
-    @Id
-    @Index
-    private long id;
+    @Id(autoincrement = true)
+    private Long id;
     @Convert(converter = BillTypeConverter.class, columnType = Integer.class)
     private BillType billType;
     @NotNull
@@ -74,9 +72,9 @@ public class BillItem extends BaseObservable {
         account = new Account();
     }
 
-    @Generated(hash = 1429943473)
-    public BillItem(long id, BillType billType, float money, String desc, @NotNull Date date,
-                    long accountId, long billTypeItemId, long memberId) {
+    @Generated(hash = 1626574267)
+    public BillItem(Long id, BillType billType, float money, String desc, @NotNull Date date, long accountId,
+                    long billTypeItemId, long memberId) {
         this.id = id;
         this.billType = billType;
         this.money = money;
@@ -103,14 +101,6 @@ public class BillItem extends BaseObservable {
 
     private void setShowDate(String showDate) {
         mShowDate = showDate;
-    }
-
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public float getMoney() {
@@ -299,6 +289,14 @@ public class BillItem extends BaseObservable {
             throw new DaoException("Entity is detached from DAO context");
         }
         myDao.update(this);
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**

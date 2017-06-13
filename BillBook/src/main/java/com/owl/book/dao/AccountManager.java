@@ -36,11 +36,10 @@ public class AccountManager extends BaseDaoManager<AccountDao, Account> {
 
     @Override
     protected void initTable() {
-        mDao.insert(new Account(1, R.drawable.icon_alipay, "支付宝"));
-        mDao.insert(new Account(2, R.drawable.icon_alipay, "微信钱包"));
-        mDao.insert(new Account(3, R.drawable.icon_alipay, "现金"));
-        mDao.insert(new Account(4, R.drawable.icon_alipay, "招商银行卡"));
-        mDao.insert(new Account(5, R.drawable.icon_alipay, "工商银行卡"));
+        mDao.insert(new Account(R.drawable.icon_alipay_grey, R.drawable.icon_alipay_white, "支付宝"));
+        mDao.insert(new Account(R.drawable.icon_cash_grey, R.drawable.icon_cash_white, "现金"));
+        mDao.insert(new Account(R.drawable.icon_deposit_card_grey, R.drawable.icon_deposit_card_white, "招商银行卡"));
+        mDao.insert(new Account(R.drawable.icon_deposit_card_grey, R.drawable.icon_deposit_card_white, "工商银行卡"));
     }
 
     @Override

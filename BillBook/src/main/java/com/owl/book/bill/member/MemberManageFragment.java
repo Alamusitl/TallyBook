@@ -162,7 +162,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
                 return;
             }
             long lastId = mAdapter.getDataList().get(mAdapter.getDataList().size() - 1).getMemberId();
-            Member member = new Member(lastId + 1, newMemberName);
+            Member member = new Member(newMemberName);
             mAdapter.getDataList().add(mAdapter.getItemCount(), member);
             mAdapter.notifyItemInserted(mAdapter.getItemCount());
             MemberManager.getInstance().insert(member);

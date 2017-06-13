@@ -12,6 +12,10 @@
             name="presenter"
             type="com.owl.book.bill.AddOneFragment.Presenter"/>
 
+        <variable
+            name="account"
+            type="com.owl.book.entity.Account"/>
+
     </data>
 
     <LinearLayout
@@ -139,7 +143,7 @@
                     android:background="@drawable/shape_rectangle_corners"
                     android:gravity="center"
                     android:onClick="@{presenter.onChooseAccountTypeClick}"
-                    android:text="@{billItem.account.accountName}"/>
+                    android:text="@{account.accountName}"/>
 
                 <TextView
                     android:id="@+id/id_add_date"
