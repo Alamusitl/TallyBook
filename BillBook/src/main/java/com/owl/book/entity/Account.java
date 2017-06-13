@@ -2,6 +2,8 @@ package com.owl.book.entity;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.owl.book.BR;
 import com.owl.book.R;
@@ -17,8 +19,19 @@ import org.greenrobot.greendao.annotation.Transient;
  * Created by Imagine Owl on 2017/5/18.
  */
 @Entity
-public class Account extends BaseObservable {
+public class Account extends BaseObservable implements Parcelable {
 
+    public static final Creator<Account> CREATOR = new Creator<Account>() {
+        @Override
+        public Account createFromParcel(Parcel source) {
+            return new Account(source);
+        }
+
+        @Override
+        public Account[] newArray(int size) {
+            return new Account[size];
+        }
+    };
     @Id(autoincrement = true)
     private Long id;
     @NotNull
@@ -64,6 +77,15 @@ public class Account extends BaseObservable {
         this.accountLabelColor = accountLabelColor;
         this.accountName = accountName;
         this.accountBalance = accountBalance;
+    }
+
+    public Account(Parcel parcel) {
+        accountIconWhite = parcel.readInt();
+        accountIconGrey = parcel.readInt();
+        accountBgColor = parcel.readInt();
+        accountLabelColor = parcel.readInt();
+        accountName = parcel.readString();
+        accountBalance = parcel.readString();
     }
 
     public Long getId() {
@@ -142,5 +164,20 @@ public class Account extends BaseObservable {
     public void setAccountSelect(boolean accountSelect) {
         isAccountSelect = accountSelect;
         notifyPropertyChanged(BR.accountSelect);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(accountIconWhite);
+        dest.writeInt(accountIconGrey);
+        dest.writeInt(accountBgColor);
+        dest.writeInt(accountLabelColor);
+        dest.writeString(accountName);
+        dest.writeString(accountBalance);
     }
 }

@@ -2,6 +2,8 @@ package com.owl.book.entity;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.owl.book.BR;
 
@@ -16,8 +18,19 @@ import org.greenrobot.greendao.annotation.Transient;
  * Created by Imagine Owl on 2017/5/23.
  */
 @Entity
-public class Member extends BaseObservable {
+public class Member extends BaseObservable implements Parcelable {
 
+    public static final Creator<Member> CREATOR = new Creator<Member>() {
+        @Override
+        public Member createFromParcel(Parcel source) {
+            return new Member(source);
+        }
+
+        @Override
+        public Member[] newArray(int size) {
+            return new Member[size];
+        }
+    };
     @Id(autoincrement = true)
     private Long memberId;
     @NotNull
@@ -43,6 +56,10 @@ public class Member extends BaseObservable {
         this.memberName = memberName;
         this.isMemberSelect = false;
         this.isMemberDefault = false;
+    }
+
+    public Member(Parcel parcel) {
+        memberName = parcel.readString();
     }
 
     public Long getMemberId() {
@@ -81,5 +98,15 @@ public class Member extends BaseObservable {
     public void setIsMemberDefault(boolean isMemberDefault) {
         this.isMemberDefault = isMemberDefault;
         notifyPropertyChanged(BR.isMemberDefault);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(memberName);
     }
 }
