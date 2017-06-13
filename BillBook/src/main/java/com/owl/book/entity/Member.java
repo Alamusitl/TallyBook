@@ -20,7 +20,7 @@ public class Member extends BaseObservable {
 
     @Id
     @Index
-    private long id;
+    private long memberId;
     @NotNull
     private String memberName;
     @Transient
@@ -28,9 +28,10 @@ public class Member extends BaseObservable {
     @NotNull
     private boolean isMemberDefault;
 
-    @Generated(hash = 944793846)
-    public Member(long id, @NotNull String memberName, boolean isMemberDefault) {
-        this.id = id;
+    @Generated(hash = 633618138)
+    public Member(long memberId, @NotNull String memberName,
+                  boolean isMemberDefault) {
+        this.memberId = memberId;
         this.memberName = memberName;
         this.isMemberDefault = isMemberDefault;
     }
@@ -40,18 +41,18 @@ public class Member extends BaseObservable {
     }
 
     public Member(long id, String memberName) {
-        this.id = id;
+        this.memberId = id;
         this.memberName = memberName;
         this.isMemberSelect = false;
         this.isMemberDefault = false;
     }
 
-    public long getId() {
-        return this.id;
+    public long getMemberId() {
+        return this.memberId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMemberId(long memberId) {
+        this.memberId = memberId;
     }
 
     @Bindable

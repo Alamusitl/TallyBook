@@ -23,7 +23,6 @@ import java.util.List;
 /**
  * Created by Imagine Owl on 2017/5/18.
  */
-
 public class AccountFragment extends BaseFragment<FragmentChooseAccountBinding> implements BaseRecyclerAdapter.OnItemClickListener {
 
     private RecyclerView mRecyclerView;

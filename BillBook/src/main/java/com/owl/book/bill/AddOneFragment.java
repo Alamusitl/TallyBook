@@ -72,7 +72,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         String[] earnListImg = getContext().getResources().getStringArray(R.array.earn_list_drawable);
         String[] earnListName = getContext().getResources().getStringArray(R.array.earn_list_name);
         for (int i = 0; i < earnListName.length; i++) {
-            earnList.add(new BillTypeItem(earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
+            earnList.add(new BillTypeItem(i, earnListName[i], ResUtils.getDrawableId(getContext(), earnListImg[i])));
         }
         mAdapter.setEarnList(earnList);
 
@@ -80,7 +80,7 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         String[] payListImg = getContext().getResources().getStringArray(R.array.pay_list_drawable);
         String[] payListName = getContext().getResources().getStringArray(R.array.payment_list_name);
         for (int i = 0; i < payListName.length; i++) {
-            payList.add(new BillTypeItem(payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
+            payList.add(new BillTypeItem(i, payListName[i], ResUtils.getDrawableId(getContext(), payListImg[i])));
         }
         mAdapter.setPayList(payList);
         mAdapter.setEarn(false);
@@ -98,8 +98,8 @@ public class AddOneFragment extends BaseFragment<FragmentAddOneBinding> implemen
         } else {
             item = mAdapter.getPayList().get(position);
         }
-        mTvSelectItem.setText(item.getItemName());
-        mIvSelectItem.setImageResource(item.getItemDrawableId() == 0 ? R.drawable.icon_other : item.getItemDrawableId());
+        mTvSelectItem.setText(item.getBillTypeItemName());
+        mIvSelectItem.setImageResource(item.getBillTypeItemDrawableId() == 0 ? R.drawable.icon_other : item.getBillTypeItemDrawableId());
     }
 
     @Override

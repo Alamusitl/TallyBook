@@ -1,7 +1,7 @@
 package com.owl.book.dao;
 
-import com.owl.book.bill.member.MemberDao;
 import com.owl.book.entity.Member;
+import com.owl.book.entity.MemberDao;
 
 import org.greenrobot.greendao.query.Query;
 
@@ -42,7 +42,7 @@ public class MemberManager extends BaseDaoManager<MemberDao, Member> {
 
     @Override
     public List<Member> getList() {
-        Query<Member> memberQuery = mDao.queryBuilder().orderAsc(MemberDao.Properties.Id).build();
+        Query<Member> memberQuery = mDao.queryBuilder().orderAsc(MemberDao.Properties.MemberId).build();
         return memberQuery.list();
     }
 

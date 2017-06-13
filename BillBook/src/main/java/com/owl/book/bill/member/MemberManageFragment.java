@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.dao.MemberManager;
+import com.owl.book.databinding.FragmentMemberManageBinding;
 import com.owl.book.entity.Member;
 import com.owl.book.recycler.BaseRecyclerAdapter;
 
@@ -160,7 +161,7 @@ public class MemberManageFragment extends BaseFragment<FragmentMemberManageBindi
             if (newMemberName.isEmpty()) {
                 return;
             }
-            long lastId = mAdapter.getDataList().get(mAdapter.getDataList().size() - 1).getId();
+            long lastId = mAdapter.getDataList().get(mAdapter.getDataList().size() - 1).getMemberId();
             Member member = new Member(lastId + 1, newMemberName);
             mAdapter.getDataList().add(mAdapter.getItemCount(), member);
             mAdapter.notifyItemInserted(mAdapter.getItemCount());

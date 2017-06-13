@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
-                    android:text="@{billItem.money}"
+                    android:text="@{String.valueOf(billItem.money)}"
                     android:textSize="30sp"/>
             </FrameLayout>
         </LinearLayout>

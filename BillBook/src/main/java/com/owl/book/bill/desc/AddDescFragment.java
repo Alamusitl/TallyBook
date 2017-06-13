@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.owl.book.R;
 import com.owl.book.base.BaseFragment;
 import com.owl.book.bill.AddOneFragment;
+import com.owl.book.databinding.FragmentEditDescriptionBinding;
 
 
 /**

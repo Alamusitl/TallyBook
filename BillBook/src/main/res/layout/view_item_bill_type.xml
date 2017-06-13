@@ -22,14 +22,14 @@
             android:contentDescription="@null"
             android:paddingTop="@dimen/dimen_10"
             android:scaleType="fitXY"
-            android:src="@{billTypeItem.itemDrawableId}"/>
+            android:src="@{billTypeItem.billTypeItemDrawableId}"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="6dp"
-            android:text="@{billTypeItem.itemName}"
+            android:text="@{billTypeItem.billTypeItemName}"
             android:textSize="14sp"/>
 
     </LinearLayout>
